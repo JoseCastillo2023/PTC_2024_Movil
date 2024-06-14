@@ -81,23 +81,23 @@ export default function Sesion({ navigation }) {
         style={styles.image}
       />
       <View style={styles.container2}>
+
         <Text style={styles.texto}>Correo</Text>
         <Input
           placeHolder='Usuario'
           setValor={usuario}
           setTextChange={setUsuario}
         />
-
-        <Input
-
-        />
-
         <Text style={styles.texto}>Contraseña</Text>
-        <Input style={styles.cuadrotexto}
+        <Input
           placeHolder='Contraseña'
           setValor={contrasenia}
           setTextChange={setContrasenia}
           contra={isContra} />
+
+          <View style={styles.container3}>
+
+          </View>
 
         <Buttons
           textoBoton='Iniciar Sesión'
@@ -111,13 +111,6 @@ export default function Sesion({ navigation }) {
           accionBoton={cerrarSesion} />
       </View>
     </View>
-
-
-
-
-
-
-
   );
 }
 
@@ -131,6 +124,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#312323",
     padding: 25,
     borderRadius: 20,
+  },
+  container3: {
+    backgroundColor: "#312323",
+    padding: 5,
   },
   button: {
     borderWidth: 2,
@@ -146,6 +143,7 @@ const styles = StyleSheet.create({
     color: "#FFF", fontWeight: '800', textTransform: 'uppercase'
   },
   texto: {
+    marginLeft: 17,
     color: '#FFFFFF', fontWeight: '900',
     fontSize: 16
   },
@@ -158,8 +156,4 @@ const styles = StyleSheet.create({
     height: 240,
     marginBottom: 10
   },
-  cuadrotexto: {
-
-
-  }
 });

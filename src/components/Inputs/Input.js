@@ -19,10 +19,10 @@ export default function Input({placeHolder, setValor, contra, setTextChange}) {
 
 const styles = StyleSheet.create({
   Input: {
-    backgroundColor:'#A79277',
+    backgroundColor:'#FFFFFF',
     color: "#fff", fontWeight:'800',
     width:250,
-    borderRadius:5,
+    borderRadius:50,
     padding: 5,
     marginVertical:10
   },

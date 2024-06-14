@@ -7,9 +7,9 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/coffeeshop-splash.png",
+      "image": "./src/img/logo_panaderia.png",
       "resizeMode": "contain",
-      "backgroundColor": "#EAD8C0"
+      "backgroundColor": "#FEFEFE"
     },
     "assetBundlePatterns": [
       "**/*"

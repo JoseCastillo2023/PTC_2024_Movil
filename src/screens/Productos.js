@@ -22,7 +22,7 @@ export default function Productos({ navigation }) {
 
   const volverLogin = async () => {
 
-    navigation.navigate('Sesion');
+    navigation.navigate('IniciarSesion');
 
   };
 

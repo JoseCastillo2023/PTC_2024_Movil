@@ -20,7 +20,7 @@ export default function Home({navigation}) {
           const data = await response.json();
     
           if (data.status) {
-            navigation.navigate('Sesion');
+            navigation.navigate('IniciarSesion');
           } else {
             console.log(data);
             // Alert the user about the error

@@ -1,8 +1,23 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Button, StyleSheet } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import IniciarSesion from '../screens/IniciarSesion.js'
+import SignUp from '../screens/SignUp.js'
 
 
-const WelcomeScreen = () => {
+
+const Stack = createNativeStackNavigator();
+function MyStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="IniciarSesion" component={IniciarSesion} />
+      <Stack.Screen name="SignUp" component={SignUp} />
+    </Stack.Navigator>
+  );
+}
+
+const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -10,10 +25,13 @@ const WelcomeScreen = () => {
         style={styles.logo}
       />
       <Text style={styles.welcomeText}>BIENVENIDO</Text>
-      <TouchableOpacity style={styles.button}>
+
+      <TouchableOpacity onPress={() => navigation.navigate('IniciarSesion')}
+       style={styles.button}>
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
+      style={styles.button}>
         <Text style={styles.buttonText}>Iniciar Sesión</Text>
       </TouchableOpacity>
       <Image

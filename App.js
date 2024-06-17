@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './src/screens/Home.js'
 import Index from './src/screens/Index.js'
+import IniciarSesion from './src/screens/IniciarSesion.js'
 import SignUp from './src/screens/SignUp.js'
 import UpdateUser from './src/screens/UpdateUser.js'
 import Productos from './src/screens/Productos.js';
@@ -23,6 +24,7 @@ export default function App() {
           headerShown: false
         }}>
         <Stack.Screen name="Index" component={Index} />
+        <Stack.Screen name="IniciarSesion" component={IniciarSesion} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="UpdateUser" component={UpdateUser} />

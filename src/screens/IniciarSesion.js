@@ -6,7 +6,7 @@ import Input from '../components/Inputs/Input'
 import Buttons from '../components/Buttons/Button';
 import * as Constantes from '../utils/constantes'
 
-export default function Sesion({ navigation }) {
+export default function IniciarSesion({ navigation }) {
 
 
   const ip = Constantes.IP;

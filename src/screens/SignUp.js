@@ -67,7 +67,7 @@ export default function SignUp({ navigation }) {
                     const data = await response.json();
         
                     if (data.status) {
-                        navigation.navigate('Sesion');
+                        navigation.navigate('IniciarSesion');
                     } else {
                         console.log(data);
                         // Alert the user about the error
@@ -77,7 +77,7 @@ export default function SignUp({ navigation }) {
                     console.error(error, "Error desde Catch");
                     Alert.alert('Error', 'Ocurrió un error al iniciar sesión con bryancito');
                 } */
-        navigation.navigate('Sesion');
+        navigation.navigate('IniciarSesion');
     };
 
 
@@ -127,7 +127,7 @@ export default function SignUp({ navigation }) {
                 console.log("data despues del response", data);
                 if (data.status) {
                     Alert.alert('Datos Guardados correctamente');
-                    navigation.navigate('Sesion');
+                    navigation.navigate('IniciarSesion');
                 } else {
                     Alert.alert('Error', data.error);
                 }

@@ -21,4 +21,5 @@ Dependencias del proyecto:
 7. npm install @expo/vector-icons
 8. npm install react-native-masked-text
 9. npm install @react-navigation/bottom-tabs
-10. npx expo start
+10. npm install react-native-screens react-native-safe-area-context
+11. npx expo start

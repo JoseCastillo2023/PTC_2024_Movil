@@ -8,7 +8,7 @@ export default function UpdateUser({navigation}) {
 
   const volverLogin = async () => {
    
-        navigation.navigate('Sesion');
+        navigation.navigate('IniciarSesion');
 
   };
 

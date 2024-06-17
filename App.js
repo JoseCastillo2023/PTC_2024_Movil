@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './src/screens/Home.js'
-import Sesion from './src/screens/Dashboard.js'
+import Index from './src/screens/Index.js'
 import SignUp from './src/screens/SignUp.js'
 import UpdateUser from './src/screens/UpdateUser.js'
 import Productos from './src/screens/Productos.js';
@@ -17,12 +17,12 @@ export default function App() {
 
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='Sesion'
+        initialRouteName='Index'
 
         screenOptions={{
           headerShown: false
         }}>
-        <Stack.Screen name="Sesion" component={Sesion} />
+        <Stack.Screen name="Index" component={Index} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="UpdateUser" component={UpdateUser} />

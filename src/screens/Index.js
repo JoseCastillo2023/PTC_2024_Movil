@@ -26,11 +26,11 @@ const WelcomeScreen = ({ navigation }) => {
       />
       <Text style={styles.welcomeText}>BIENVENIDO</Text>
 
-      <TouchableOpacity onPress={() => navigation.navigate('IniciarSesion')}
+      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
        style={styles.button}>
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
+      <TouchableOpacity onPress={() => navigation.navigate('IniciarSesion')}
       style={styles.button}>
         <Text style={styles.buttonText}>Iniciar Sesión</Text>
       </TouchableOpacity>

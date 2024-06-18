@@ -70,12 +70,12 @@ export default function Home({navigation}) {
       </Text>
       <Buttons
       textoBoton='Cerrar Sesión'
-      accionBoton={handleLogout}
+      //accionBoton={handleLogout}
       />
       
       <Buttons
       textoBoton='Ver Productos'
-      accionBoton={irActualizar}
+      //accionBoton={irActualizar}
       />
 
     </View>

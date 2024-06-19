@@ -8,7 +8,7 @@ import InputMultiline from '../components/Inputs/InputMultiline'
 import Buttons from '../components/Buttons/Button';
 
 
-export default function SignUp({ navigation }) {
+export default function Registrar({ navigation }) {
     const ip = Constantes.IP;
 
     const [date, setDate] = useState(new Date());

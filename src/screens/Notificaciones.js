@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, Button, StyleSheet } from 'react-native';
 
 
-const Productos = () => {
+const Notificaciones = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.reposteriaText}>
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Productos;
+export default Notificaciones;

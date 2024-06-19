@@ -1,23 +1,16 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, Button, StyleSheet } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import IniciarSesion from '../screens/IniciarSesion.js'
-import SignUp from '../screens/SignUp.js'
+export default function Index({ navigation }) {
 
+  const irRegistrar = async () => {
+    navigation.navigate('Registrar');
+  };
 
+  const irInicio = async () => {
+    navigation.navigate('IniciarSesion');
+  };
 
-const Stack = createNativeStackNavigator();
-function MyStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="IniciarSesion" component={IniciarSesion} />
-      <Stack.Screen name="SignUp" component={SignUp} />
-    </Stack.Navigator>
-  );
-}
-
-const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -26,12 +19,12 @@ const WelcomeScreen = ({ navigation }) => {
       />
       <Text style={styles.welcomeText}>BIENVENIDO</Text>
 
-      <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
-       style={styles.button}>
+      <TouchableOpacity onPress={(irRegistrar)}
+        style={styles.button}>
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('IniciarSesion')}
-      style={styles.button}>
+      <TouchableOpacity onPress={(irInicio)}
+        style={styles.button}>
         <Text style={styles.buttonText}>Iniciar Sesión</Text>
       </TouchableOpacity>
       <Image
@@ -43,7 +36,7 @@ const WelcomeScreen = ({ navigation }) => {
       </Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -81,5 +74,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export default WelcomeScreen;

@@ -70,13 +70,16 @@ export default function IniciarSesion({ navigation }) {
   };
 
   const irRegistrar = async () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('Registrar');
   };
 
   const irInicio = async () => {
-    navigation.navigate('Home');
+    navigation.navigate('Inicio');
   };
   
+  const irMenu = async () => {
+    navigation.navigate('NavBottom');
+  };
 
 
 
@@ -108,7 +111,7 @@ export default function IniciarSesion({ navigation }) {
           textoBoton='Iniciar Sesión'
           //accionBoton={handlerLogin} No borrar este metodo, posible
           //uso a futuro 
-          accionBoton={irInicio}
+          accionBoton={irMenu}
           />
         <TouchableOpacity onPress={irRegistrar}><Text style={styles.textRegistrar}>Registrar Usuario</Text></TouchableOpacity>
 

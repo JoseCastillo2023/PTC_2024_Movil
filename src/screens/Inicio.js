@@ -6,7 +6,10 @@ const Inicio = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.reposteriaText}>
-        Repostería - Realizado con los mejores materiales y por las mejores manos 100% salvadoreñas
+        Panaderia Hernández
+      </Text>
+      <Text style={styles.reposteriaText}>
+        Bienvenido
       </Text>
     </View>
   );
@@ -14,6 +17,11 @@ const Inicio = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  container2: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

@@ -1,87 +1,35 @@
-
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Alert, Buttons, TextInput } from 'react-native';
 import { useState } from 'react';
-import Input from '../components/Inputs/Input'
-import Buttons from '../components/Buttons/Button';
-import * as Constantes from '../utils/constantes'
 
 export default function IniciarSesion({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-
-  const ip = Constantes.IP;
-
-  const [isContra, setIsContra] = useState(true)
-  const [usuario, setUsuario] = useState('')
-  const [contrasenia, setContrasenia] = useState('')
-  //const [confirmarContrasenia, setConfirmarContrasenia] = useState('')
-  //http://localhost/coffeeshop/api/services/public/cliente.php?action=signUpMovil
-
-  const cerrarSesion = async () => {
-    try {
-      const response = await fetch(`${ip}/coffeeshop/api/services/public/cliente.php?action=logOut`, {
-        method: 'GET'
-      });
-
-      const data = await response.json();
-
-      if (data.status) {
-        Alert.alert("Sesion Finalizada")
-      } else {
-        console.log(data);
-        // Alert the user about the error
-        Alert.alert('Error', data.error);
-      }
-    } catch (error) {
-      console.error(error, "Error desde Catch");
-      Alert.alert('Error', 'Ocurrió un error al iniciar sesión con bryancito');
-    }
-  }
-
-
-  const handlerLogin = async () => {
-
-    try {
-      const formData = new FormData();
-      formData.append('correo', usuario);
-      formData.append('clave', contrasenia);
-      //utilizar la direccion IP del servidor y no localhost
-      const response = await fetch(`${ip}/coffeeshop/api/services/public/cliente.php?action=logIn`, {
-        method: 'POST',
-        body: formData
-      });
-
-      const data = await response.json();
-      if (data.status) {
-        //setContrasenia('')
-        //setUsuario('')
-        navigation.navigate('Home');
-
-      } else {
-        console.log(data);
-        // Alert the user about the error
-        Alert.alert('Error sesion', data.error);
-      }
-    } catch (error) {
-      console.error(error, "Error desde Catch");
-
-      Alert.alert('Error', 'Ocurrió un error al iniciar sesión');
-    }
-  };
 
   const irRegistrar = async () => {
     navigation.navigate('Registrar');
   };
 
-  const irInicio = async () => {
-    navigation.navigate('Inicio');
-  };
-  
-  const irMenu = async () => {
+  const irMenu = () => {
+    if (!validateEmail(email)) {
+      setErrorMessage('Por favor, ingrese un correo electrónico válido.');
+      return;
+    }
+    if (password.length < 8) {
+      setErrorMessage('La contraseña debe tener al menos 5 caracteres.');
+      return;
+    }
+    setErrorMessage(''); // Clear error message if all validations pass
     navigation.navigate('NavBottom');
   };
 
-
+  const validateEmail = (email) => {
+    // Simple regex for validating email format
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
 
   return (
     <View style={styles.container}>
@@ -90,38 +38,30 @@ export default function IniciarSesion({ navigation }) {
       />
       <View style={styles.container2}>
 
+
         <Text style={styles.texto}>Correo</Text>
-        <Input
-          placeHolder='Usuario'
-          setValor={usuario}
-          setTextChange={setUsuario}
-        />
+        <View style={styles.container3}>
+          <TextInput style={styles.input}
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+            autoCapitalize="none" />
+        </View>
         <Text style={styles.texto}>Contraseña</Text>
-        <Input
-          placeHolder='Contraseña'
-          setValor={contrasenia}
-          setTextChange={setContrasenia}
-          contra={isContra} />
-
-          <View style={styles.container3}>
-
-          </View>
-
-        <Buttons
-          textoBoton='Iniciar Sesión'
-          //accionBoton={handlerLogin} No borrar este metodo, posible
-          //uso a futuro 
-          accionBoton={irMenu}
+        <View style={styles.container3}>
+          <TextInput style={styles.input}
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true}
           />
-        <TouchableOpacity onPress={irRegistrar}><Text style={styles.textRegistrar}>Registrar Usuario</Text></TouchableOpacity>
+        </View>
 
-        {//Boton de ayuda para finalizar la sesión
-        }
-        <Buttons
-          textoBoton='Cerrar Sesion'
-          accionBoton={cerrarSesion} />
+        <View style={styles.container4}>
+          <TouchableOpacity onPress={irMenu} style={(styles.button)}><Text style={styles.textIniciar}>Iniciar Sesión</Text></TouchableOpacity>
+          <Text onPress={irRegistrar} style={styles.textRegistrar}>Recuperar Contraseña</Text>
+        </View>
       </View>
-    </View>
+    </View >
   );
 }
 
@@ -133,38 +73,61 @@ const styles = StyleSheet.create({
   },
   container2: {
     backgroundColor: "#312323",
-    padding: 25,
+    width: 308,
+    height: 300,
     borderRadius: 20,
+    padding: 5,
+    margin: 10,
   },
   container3: {
-    backgroundColor: "#312323",
-    padding: 5,
+    alignItems: 'center',
+  },
+  container4: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
     borderWidth: 2,
-    borderColor: "#AF8260",
-    width: 150,
-    borderRadius: 10,
-    backgroundColor: "#AF8260",
+    alignItems: 'center',
+    borderColor: "#FFF",
+    width: 222,
+    borderRadius: 50,
+    backgroundColor: "#FFF",
     padding: 10,
-    marginVertical: 10
+    marginVertical: 10,
   },
   buttonText: {
     textAlign: 'center',
-    color: "#FFF", fontWeight: '800', textTransform: 'uppercase'
+    color: "#FFF",
+    fontWeight: '500',
   },
   texto: {
-    marginLeft: 17,
-    color: '#FFFFFF', fontWeight: '900',
+    marginVertical: 5,
+    marginLeft: 30,
+    color: '#FFFFFF',
+    fontWeight: '600',
     fontSize: 16
   },
-  textRegistrar: {
+  textIniciar: {
     color: '#322C2B', fontWeight: '700',
+    fontSize: 18
+  },
+  textRegistrar: {
+    color: '#FFF', fontWeight: '700',
     fontSize: 18
   },
   image: {
     width: 240,
     height: 240,
     marginBottom: 10
+  },
+  input: {
+    backgroundColor: '#FFFFFF',
+    color: "#000",
+    width: 279,
+    height: 33,
+    borderRadius: 50,
+    marginVertical: 10,
+    paddingHorizontal: 20,
   },
 });

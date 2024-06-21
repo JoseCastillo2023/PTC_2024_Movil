@@ -1,257 +1,152 @@
-
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useState } from 'react';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import * as Constantes from '../utils/constantes'
-import Input from '../components/Inputs/Input'
-import InputMultiline from '../components/Inputs/InputMultiline'
-import Buttons from '../components/Buttons/Button';
-
+import Toast from 'react-native-toast-message';
+import { ScrollView } from 'react-native';
 
 export default function Registrar({ navigation }) {
-    const ip = Constantes.IP;
+    const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
+    const [telefono, setTelefono] = useState('');
+    const [contrasena, setContrasena] = useState('');
+    const [correo, setCorreo] = useState('');
+    const [direccion, setDireccion] = useState('');
 
-    const [date, setDate] = useState(new Date());
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-
-    const [nombre, setNombre] = useState('')
-    const [apellido, setApellido] = useState('')
-    const [email, setEmail] = useState('')
-    const [direccion, setDireccion] = useState('')
-    const [dui, setDui] = useState('')
-    const [telefono, setTelefono] = useState('')
-    const [fechaNacimiento, setFechaNacimiento] = useState('')
-    const [clave, setClave] = useState('')
-    const [confirmarClave, setConfirmarClave] = useState('')
-
-    /*
-    Codigo para mostrar el datetimepicker
-    */
-
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate;
-        setShow(false);
-        setDate(currentDate);
-        /*
-        Codigo para convertir la fecha al formato año-mes-dia */
-
-        const year = currentDate.getFullYear();
-        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const day = String(currentDate.getDate()).padStart(2, '0');
-
-        const fechaNueva = `${year}-${month}-${day}`;
-        setFechaNacimiento(fechaNueva)
-    };
-
-    const showMode = (currentMode) => {
-        setShow(true);
-        setMode(currentMode);
-    };
-
-    const showDatepicker = () => {
-        showMode('date');
-    };
-
-    /*
-        Fin Codigo para mostrar el datetimepicker
-        */
-
-    const handleLogout = async () => {
-        /*
-                try {
-                    const response = await fetch(`${ip}/coffeeshop/api/services/public/cliente.php?action=logOut`, {
-                        method: 'GET'
-                    });
-        
-                    const data = await response.json();
-        
-                    if (data.status) {
-                        navigation.navigate('IniciarSesion');
-                    } else {
-                        console.log(data);
-                        // Alert the user about the error
-                        Alert.alert('Error', data.error);
-                    }
-                } catch (error) {
-                    console.error(error, "Error desde Catch");
-                    Alert.alert('Error', 'Ocurrió un error al iniciar sesión con bryancito');
-                } */
+    const irInicioCreado = async () => {
+        if (!nombre || !apellido || !telefono || !contrasena || !correo || !direccion) {
+            Toast.show({
+                type: 'error',
+                text1: 'Faltan datos',
+                text2: 'Por favor, complete todos los campos.',
+            });
+            return;
+        }
         navigation.navigate('IniciarSesion');
     };
 
-
-
-
-
-    //props que recibe input
-    //placeHolder, setValor, contra, setTextChange
-
-    const handleCreate = async () => {
-
-        try {
-            //utilizar la direccion IP del servidor y no localhost
-
-            if (!(nombre.trim() !== "" &&
-                apellido.trim() !== "" &&
-                email.trim() !== "" &&
-                direccion.trim() !== "" &&
-                dui.trim() !== "" &&
-                fechaNacimiento.trim() !== "" &&
-                telefono.trim() !== "" &&
-                clave.trim() !== "" &&
-                confirmarClave.trim() !== ""
-            )) {
-                Alert.alert("Debdes llenar todos los campos")
-                return
-            }
-            else {
-                const formData = new FormData();
-                formData.append('nombreCliente', nombre);
-                formData.append('apellidoCliente', apellido);
-                formData.append('correoCliente', email);
-                formData.append('direccionCliente', direccion);
-                formData.append('duiCliente', dui);
-                formData.append('nacimientoCliente', fechaNacimiento);
-                formData.append('telefonoCliente', telefono);
-                formData.append('claveCliente', clave);
-                formData.append('confirmarClave', confirmarClave);
-
-               // console.log('Formato de la fecha: ', date)
-                const response = await fetch(`${ip}/coffeeshop/api/services/public/cliente.php?action=signUpMovil`, {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const data = await response.json();
-                console.log("data despues del response", data);
-                if (data.status) {
-                    Alert.alert('Datos Guardados correctamente');
-                    navigation.navigate('IniciarSesion');
-                } else {
-                    Alert.alert('Error', data.error);
-                }
-            }
-
-        } catch (error) {
-            Alert.alert('Ocurrió un error al intentar crear el usuario');
-        }
+    const irInicio = async () => {
+        navigation.navigate('IniciarSesion');
     };
 
-
-
     return (
-        <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollViewStyle}>
-                <Text style={styles.texto}>Registrar Usuario</Text>
-                <Input
-                    placeHolder='Nombre Cliente'
-                    setValor={nombre}
-                    setTextChange={setNombre}
+        <ScrollView>
+            <View style={styles.container}>
+                <Image
+                    source={require('../img/logo_panaderia.png')}
+                    style={styles.logo}
                 />
-                <Input
-                    placeHolder='Apellido Cliente'
-                    setValor={apellido}
-                    setTextChange={setApellido}
-                />
-                <Input
-                    placeHolder='Email Cliente'
-                    setValor={email}
-                    setTextChange={setEmail} />
-                <InputMultiline
-                    placeHolder='Dirección Cliente'
-                    setValor={setDireccion}
-                    valor={direccion}
-                    setTextChange={setDireccion} />
-                <Input
-                    placeHolder='Dui Cliente'
-                    setValor={dui}
-                    setTextChange={setDui} />
-
-                <View style={styles.contenedorFecha}>
-                    <Text style={styles.fecha}>Fecha Nacimiento</Text>
-
-                    <TouchableOpacity onPress={showDatepicker}><Text style={styles.fechaSeleccionar}>Seleccionar Fecha:</Text></TouchableOpacity>
-                    <Text style={styles.fecha}>Seleccion: {fechaNacimiento}</Text>
-
-                    {show && (
-                        <DateTimePicker
-                            testID="dateTimePicker"
-                            value={date}
-                            mode={mode}
-                            is24Hour={true}
-                            onChange={onChange}
-                        />
-                    )}
+                <View style={styles.rowContainer}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.textRegistro}>Nombre</Text>
+                        <TextInput style={styles.cuadroTextoP} value={nombre} onChangeText={setNombre} />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.textRegistro}>Apellido</Text>
+                        <TextInput style={styles.cuadroTextoP} value={apellido} onChangeText={setApellido} />
+                    </View>
                 </View>
-
-                <Input
-                    placeHolder='Telefono'
-                    setValor={telefono}
-                    setTextChange={setTelefono} />
-                <Input
-                    placeHolder='Clave'
-                    contra={true}
-                    setValor={clave}
-                    setTextChange={setClave} />
-                <Input
-                    placeHolder='Confirmar Clave'
-                    contra={true}
-                    setValor={confirmarClave}
-                    setTextChange={setConfirmarClave} />
-
-                <Buttons
-                    textoBoton='Registrar Usuario'
-                    accionBoton={handleCreate}
-                />
-
-                <Buttons
-                    textoBoton='Ir al Login'
-                    accionBoton={handleLogout}
-                />
-
-
-            </ScrollView>
-        </View>
-
+                <View style={styles.rowContainer}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.textRegistro}>Teléfono</Text>
+                        <TextInput style={styles.cuadroTextoP} value={telefono} onChangeText={setTelefono} />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.textRegistro}>Contraseña</Text>
+                        <TextInput style={styles.cuadroTextoP} value={contrasena} onChangeText={setContrasena} secureTextEntry />
+                    </View>
+                </View>
+                <View style={styles.rowContainer}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.textRegistro}>Correo</Text>
+                        <TextInput style={styles.cuadroTextoG} value={correo} onChangeText={setCorreo} keyboardType="email-address" />
+                    </View>
+                </View>
+                <View style={styles.rowContainer}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.textRegistro}>Dirección</Text>
+                        <TextInput style={styles.cuadroTextoG} value={direccion} onChangeText={setDireccion} />
+                    </View>
+                </View>
+                <View style={styles.container2}>
+                    <TouchableOpacity onPress={irInicioCreado} style={styles.button}>
+                        <Text style={styles.buttonText}>Registrarse</Text>
+                    </TouchableOpacity>
+                    <Text onPress={irInicio} style={styles.buttonText2}>¿Ya tienes cuenta?</Text>
+                </View>
+                <Toast ref={(ref) => Toast.setRef(ref)} />
+            </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#FFFFF',
-        paddingTop: 20
-
-    },
-    scrollViewStyle: {
+    logo: {
+        marginTop: 60,
         alignItems: 'center',
-        justifyContent: 'center'
+        marginBottom: 10,
+        width: 200,
+        height: 200,
     },
-    texto: {
-        color: '#322C2B', fontWeight: '900',
-        fontSize: 20
+    container: {
+        alignItems: 'center',
+        paddingHorizontal: 20,
     },
-    textRegistrar: {
-        color: '#322C2B', fontWeight: '700',
-        fontSize: 18
+    container2: {
+        alignItems: 'center',
     },
-
-    fecha: {
+    rowContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical: 8,
+        width: '100%',
+    },
+    inputContainer: {
+        flex: 1,
+        marginHorizontal: 7,
+    },
+    button: {
+        marginTop: 20,
+        backgroundColor: '#322C2B',
+        width: 160,
+        height: 40,
+        fontWeight: '900',
+        borderRadius: 50,
+    },
+    buttonText: {
+        marginVertical: 7,
+        textAlign: 'center',
+        alignItems: 'center',
+        color: '#FFF',
         fontWeight: '600',
-        color: '#FFF'
+        fontSize: 16
     },
-    fechaSeleccionar: {
+    buttonText2: {
+        marginVertical: 10,
+        textAlign: 'center',
+        color: '#000',
+        fontWeight: '600',
+        fontSize: 16,
+    },
+    textRegistro: {
+        color: '#322C2B',
         fontWeight: '700',
-        color: '#322C2B', 
-        textDecorationLine:'underline'
+        fontSize: 14,
+        marginBottom: 5,
     },
-    contenedorFecha: {
-        backgroundColor: '#FFFFFF',
-        color: "#fff", fontWeight: '800',
-        width: 250,
-        borderRadius: 5,
-        padding: 5,
-        marginVertical: 10
-    }
+    cuadroTextoP: {
+        backgroundColor: '#543F3F',
+        borderRadius: 50,
+        width: '100%',
+        height: 33,
+        paddingHorizontal: 10,
+        color: '#FFF',
+    },
+    cuadroTextoG: {
+        backgroundColor: '#543F3F',
+        borderRadius: 50,
+        width: '100%',
+        height: 33,
+        paddingHorizontal: 10,
+        color: '#FFF',
+        marginBottom: 10,
+    },
 });

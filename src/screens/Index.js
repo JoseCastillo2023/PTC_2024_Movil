@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Index({ navigation }) {
 
@@ -13,27 +13,33 @@ export default function Index({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.welcomeText}>BIENVENIDO</Text>
       <Image
         source={require('../img/logo_panaderia.png')}
         style={styles.logo}
       />
-      <Text style={styles.welcomeText}>BIENVENIDO</Text>
-
-      <TouchableOpacity onPress={(irRegistrar)}
-        style={styles.button}>
+      <TouchableOpacity onPress={irRegistrar} style={styles.button}>
         <Text style={styles.buttonText}>Registrarse</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={(irInicio)}
-        style={styles.button}>
+      <TouchableOpacity onPress={irInicio} style={styles.button}>
         <Text style={styles.buttonText}>Iniciar Sesión</Text>
       </TouchableOpacity>
-      <Image
-        source={require('../img/Pastel.png')}
-        style={styles.cakeImage}
-      />
-      <Text style={styles.reposteriaText}>
-        Repostería - Realizado con los mejores materiales y por las mejores manos 100% salvadoreñas
-      </Text>
+
+      <View style={styles.container2}>
+        <Image
+          source={require('../img/Pastel.png')}
+          style={styles.cakeImage}
+        />
+        <View style={styles.textContainer}>
+          <Text style={styles.reposteriaTitle}>
+            Repostería
+          </Text>
+          <Text style={styles.reposteriaText}>
+            Realizado con los mejores materiales y por las mejores manos 100% salvadoreñas
+          </Text>
+        </View>
+      </View>
+
     </View>
   );
 }
@@ -44,33 +50,54 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  container2: {
+    marginTop: 30,
+    width: 300,
+    flexDirection: 'row', // Cambiado a row para colocar imagen a la izquierda y texto a la derecha
+    alignItems: 'center',
+    backgroundColor: '#FDDEC2',
+    padding: 10,
+    borderRadius: 20,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 10,
+  },
   logo: {
-    width: 150,
-    height: 150,
+    marginBottom: 10,
+    width: 200,
+    height: 200,
   },
   welcomeText: {
-    fontSize: 24,
+    fontSize: 19,
     fontWeight: 'bold',
-    marginVertical: 20,
+    marginVertical: 10,
   },
   button: {
     backgroundColor: '#312323',
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 5,
+    height: 50,
+    width: 167,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    marginBottom: 20,
   },
   buttonText: {
     color: 'white',
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 19,
   },
   cakeImage: {
-    width: 200,
-    height: 200,
-    marginVertical: 20,
+    width: 100,
+    height: 100,
+  },
+  reposteriaTitle: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   reposteriaText: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 14,
   },
 });

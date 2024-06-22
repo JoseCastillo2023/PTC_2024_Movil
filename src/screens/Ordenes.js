@@ -1,3 +1,4 @@
+// Importar Dependencias.
 import React, { useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
@@ -8,6 +9,7 @@ const Ordenes = () => {
 
   const renderScreen = () => {
     if (currentScreen === 'Screen1') {
+      // Pantalla 1.
       return (
         <View style={styles.containerOP}>
           <View style={styles.containerOrden}>
@@ -26,6 +28,7 @@ const Ordenes = () => {
         </View>
       );
     } else {
+      // Pantalla 2.
       return (
         <View style={styles.containerHO}>
           <View style={styles.containerOrden}>
@@ -99,6 +102,7 @@ const Ordenes = () => {
   );
 };
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,17 +1,21 @@
+// Importar Dependencias.
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Inicio = ({ navigation }) => {
+
   const [currentScreen, setCurrentScreen] = useState('Screen1');
 
+  // Navegación entre pantallas.
   const irDetalle = async () => {
     navigation.navigate('DetalleProd');
   };
 
   const renderScreen = () => {
     if (currentScreen === 'Screen1') {
+      // Pantalla 1.
       return (
         <View style={styles.container}>
           <View style={styles.containerBuscador}>
@@ -56,6 +60,7 @@ const Inicio = ({ navigation }) => {
         </View>
       );
     } else {
+      // Pantalla 2.
       return (
         <View style={styles.container}>
           <View style={styles.containerBuscador}>
@@ -120,6 +125,7 @@ const Inicio = ({ navigation }) => {
   );
 };
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

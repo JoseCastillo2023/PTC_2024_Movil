@@ -1,3 +1,4 @@
+// Importar Dependencias.
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -11,6 +12,7 @@ import Notificaciones from '../screens/Notificaciones';
 import DetalleProd from '../screens/DetalleProd';
 import 'react-native-gesture-handler';
 
+// Constantes de Navegación del menu.
 const Tab = createBottomTabNavigator();
 const Stack=  createStackNavigator();
 
@@ -37,6 +39,7 @@ function CustomTabBarIcon({ name, size, color, focused }) {
   );
 }
 
+// Metodo de navegación del Nav Bottom.
 function TabNavigator({ navigation }) {
   const [headerContent, setHeaderContent] = useState('Contenedor Titulo');
   const [headerContent2, setHeaderContent2] = useState('Contenedor Texto');
@@ -66,7 +69,7 @@ function TabNavigator({ navigation }) {
         </View>
       </View>
 
-      {/* Tab.Navigator */}
+      // Navegación entre pantallas.
       <View style={styles.navigatorContainer}>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -154,6 +157,7 @@ function TabNavigator({ navigation }) {
   );
 }
 
+// Navegación entre otras pantallas.
 export default function AppNavigator() {
   return (
     <Stack.Navigator>
@@ -185,6 +189,7 @@ export default function AppNavigator() {
   );
 }
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

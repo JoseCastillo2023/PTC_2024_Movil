@@ -1,17 +1,21 @@
+// Importar Dependencias.
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Alert, Buttons, TextInput } from 'react-native';
 import { useState } from 'react';
 
 export default function Recup2({ navigation }) {
+
+    // Constantes para validar.
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-
+  // Navegación entre pantallas.
   const irRecup1 = async () => {
     navigation.navigate('Recup1');
   };
 
+  // Validación de la pantalla.
   const irInicio = () => {
     if (password.length < 8) {
       setErrorMessage('La contraseña debe tener al menos 5 caracteres.');
@@ -62,6 +66,7 @@ export default function Recup2({ navigation }) {
   );
 }
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

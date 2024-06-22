@@ -1,3 +1,4 @@
+// Importar Dependencias.
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
@@ -55,6 +56,7 @@ const DetalleProd = () => {
     );
 };
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
     scrollContainer: {
         paddingVertical: 20,

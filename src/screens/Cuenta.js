@@ -1,3 +1,4 @@
+// Importar Dependencias.
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -6,10 +7,12 @@ import Toast from 'react-native-toast-message';
 
 export default function Cuenta({ navigation }) {
 
+  // Navegación entre pantallas.
   const irInicio = async () => {
     navigation.navigate('IniciarSesion');
   };
 
+  // Constantes para validar.
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -20,6 +23,7 @@ export default function Cuenta({ navigation }) {
   const [correo, setCorreo] = useState('');
   const [direccion, setDireccion] = useState('');
 
+  // Validación de la pantalla.
   const GuardarDatos = async () => {
     if (!nombre || !apellido || !telefono || !correo || !direccion) {
       Toast.show({
@@ -53,6 +57,7 @@ export default function Cuenta({ navigation }) {
 
   const renderScreen = () => {
     if (currentScreen === 'Screen1') {
+      // Pantalla 1.
       return (
         <View style={styles.container}>
           <View style={styles.profileContainer}>
@@ -103,6 +108,7 @@ export default function Cuenta({ navigation }) {
       );
     }
     if (currentScreen === 'Screen2') {
+      // Pantalla 2.
       return (
         <View style={styles.container2}>
           <View style={styles.profileContainer}>
@@ -150,6 +156,7 @@ export default function Cuenta({ navigation }) {
       );
     }
     else {
+      // Pantalla 3
       return (
         <View style={styles.container2}>
 
@@ -194,6 +201,7 @@ export default function Cuenta({ navigation }) {
   );
 };
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   scrollViewContainer: {
     flexGrow: 1,

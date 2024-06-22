@@ -1,12 +1,13 @@
+// Importar Dependencias.
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
 
-
 const Carrito = ({navigation}) => {
-
+  
+  // Metodos de navegación.
   const irInicio = async () => {
     navigation.navigate('Inicio')
   };
@@ -79,6 +80,7 @@ const Carrito = ({navigation}) => {
   );
 };
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   scrollContainer: {
     backgroundColor: 'white',

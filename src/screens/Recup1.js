@@ -1,26 +1,30 @@
+// Importar Dependencias.
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import { useState } from 'react';
 
 export default function Recup1({ navigation }) {
+
+    // Constantes para validar.
     const [email, setEmail] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    // Navegación entre pantallas.
     const irInicio = () => {
         navigation.navigate('InicioSesion');
     };
 
+    // Validación de la pantalla.
     const irRecup2 = () => {
         if (!validateEmail(email)) {
             setErrorMessage('Por favor, ingrese un correo electrónico válido.');
             return;
         }
-        setErrorMessage(''); // Clear error message if all validations pass
+        setErrorMessage('');
         navigation.navigate('Recup2');
     };
 
     const validateEmail = (email) => {
-        // Simple regex for validating email format
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     };
@@ -57,6 +61,7 @@ export default function Recup1({ navigation }) {
     );
 }
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
     container: {
         flex: 1,

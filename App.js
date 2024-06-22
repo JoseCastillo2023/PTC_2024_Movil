@@ -1,4 +1,4 @@
-// App.js
+// Importar Dependencias.
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,6 +18,7 @@ import NavBottom from './src/navegacion/NavBottom';
 
 const Stack = createNativeStackNavigator();
 
+// Navegación entre pantallas.
 export default function App() {
   return (
     <NavigationContainer>
@@ -25,62 +26,62 @@ export default function App() {
         <Stack.Screen
           name="Index"
           component={Index}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="IniciarSesion"
           component={IniciarSesion}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Registrar"
           component={Registrar}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Inicio"
           component={Inicio}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Carrito"
           component={Carrito}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Ordenes"
           component={Ordenes}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Cuenta"
           component={Cuenta}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="Notificaciones"
           component={Notificaciones}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Recup1"
           component={Recup1}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Recup2"
           component={Recup2}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }} 
         />
         <Stack.Screen
           name="DetalleProd"
           component={DetalleProd}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="NavBottom"
           component={NavBottom}
-          options={{ headerShown: false }} // Oculta el header
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

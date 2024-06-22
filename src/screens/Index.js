@@ -1,8 +1,10 @@
+// Importar Dependencias.
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Index({ navigation }) {
 
+  // Navegación entre pantallas.
   const irRegistrar = async () => {
     navigation.navigate('Registrar');
   };
@@ -43,6 +45,7 @@ export default function Index({ navigation }) {
   );
 }
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
   container: {
     flex: 1,

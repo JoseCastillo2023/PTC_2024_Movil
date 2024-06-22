@@ -1,9 +1,12 @@
+// Importar Dependencias.
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useState } from 'react';
 import Toast from 'react-native-toast-message';
 import { ScrollView } from 'react-native';
 
 export default function Registrar({ navigation }) {
+
+    // Constantes para validar.
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [telefono, setTelefono] = useState('');
@@ -11,6 +14,7 @@ export default function Registrar({ navigation }) {
     const [correo, setCorreo] = useState('');
     const [direccion, setDireccion] = useState('');
 
+    // Navegación entre pantallas y validación de la pantalla.
     const irInicioCreado = async () => {
         if (!nombre || !apellido || !telefono || !contrasena || !correo || !direccion) {
             Toast.show({
@@ -78,6 +82,7 @@ export default function Registrar({ navigation }) {
     );
 }
 
+// Diseño de la pantalla.
 const styles = StyleSheet.create({
     logo: {
         marginTop: 60,

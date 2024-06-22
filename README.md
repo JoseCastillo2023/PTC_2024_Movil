@@ -1,5 +1,5 @@
 # PTC_2024_Movil
-Nombre del proyecto: 
+Nombre del proyecto: PanÉmporium.
 
 Descripción:
 Proyecto basado en una panaderia utilizando React Native para crear una app
@@ -23,4 +23,12 @@ Dependencias del proyecto:
 9. npm install @react-navigation/bottom-tabs
 10. npm install react-native-screens react-native-safe-area-context
 11. npm i @react-navigation/stack
-12. npx expo start
+12. npm install expo@~50.0.19
+13. npm install react-native-safe-area-context@4.8.2
+14. npm install react-native-screens@~3.29.0
+15. npm install react-native-toast-message
+16. npm install @react-native-community/masked-view
+17. npm install react-native-gesture-handler@~2.14.0
+18. npm install
+19. npx expo start --clear
+20. npx expo start

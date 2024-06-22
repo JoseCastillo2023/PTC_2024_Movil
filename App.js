@@ -7,11 +7,14 @@ import Index from './src/screens/Index';
 import IniciarSesion from './src/screens/IniciarSesion';
 import Registrar from './src/screens/Registrar';
 import Inicio from './src/screens/Inicio';
-import Productos from './src/screens/Productos';
+import Carrito from './src/screens/Carrito';
 import Ordenes from './src/screens/Ordenes';
 import Cuenta from './src/screens/Cuenta';
 import Notificaciones from './src/screens/Notificaciones';
-import NavBottom from './src/App/NavBottom';
+import Recup1 from './src/screens/Recup1';
+import Recup2 from './src/screens/Recup2';
+import DetalleProd from './src/screens/DetalleProd';
+import NavBottom from './src/navegacion/NavBottom';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,8 +43,8 @@ export default function App() {
           options={{ headerShown: false }} // Oculta el header
         />
         <Stack.Screen
-          name="Productos"
-          component={Productos}
+          name="Carrito"
+          component={Carrito}
           options={{ headerShown: false }} // Oculta el header
         />
         <Stack.Screen
@@ -57,6 +60,21 @@ export default function App() {
         <Stack.Screen
           name="Notificaciones"
           component={Notificaciones}
+          options={{ headerShown: false }} // Oculta el header
+        />
+        <Stack.Screen
+          name="Recup1"
+          component={Recup1}
+          options={{ headerShown: false }} // Oculta el header
+        />
+        <Stack.Screen
+          name="Recup2"
+          component={Recup2}
+          options={{ headerShown: false }} // Oculta el header
+        />
+        <Stack.Screen
+          name="DetalleProd"
+          component={DetalleProd}
           options={{ headerShown: false }} // Oculta el header
         />
         <Stack.Screen

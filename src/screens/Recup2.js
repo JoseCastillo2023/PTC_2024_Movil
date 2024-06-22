@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Alert, Buttons, TextInput } from 'react-native';
 import { useState } from 'react';
 
-export default function IniciarSesion({ navigation }) {
-  const [email, setEmail] = useState('');
+export default function Recup2({ navigation }) {
   const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
 
@@ -12,23 +12,21 @@ export default function IniciarSesion({ navigation }) {
     navigation.navigate('Recup1');
   };
 
-  const irMenu = () => {
-    if (!validateEmail(email)) {
-      setErrorMessage('Por favor, ingrese un correo electrónico válido.');
-      return;
-    }
+  const irInicio = () => {
     if (password.length < 8) {
       setErrorMessage('La contraseña debe tener al menos 5 caracteres.');
       return;
     }
+    if (password2.length < 8) {
+        setErrorMessage('La contraseña debe tener al menos 5 caracteres.');
+        return;
+    }
+    if (password != password2){
+        setErrorMessage('Las contraseñas no coinciden');
+        return;
+    }
     setErrorMessage(''); // Clear error message if all validations pass
-    navigation.navigate('NavBottom');
-  };
-
-  const validateEmail = (email) => {
-    // Simple regex for validating email format
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+    navigation.navigate('IniciarSesion');
   };
 
   return (
@@ -38,16 +36,7 @@ export default function IniciarSesion({ navigation }) {
       />
       <View style={styles.container2}>
 
-
-        <Text style={styles.texto}>Correo</Text>
-        <View style={styles.container3}>
-          <TextInput style={styles.input}
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none" />
-        </View>
-        <Text style={styles.texto}>Contraseña</Text>
+        <Text style={styles.texto}>Nueva contraseña</Text>
         <View style={styles.container3}>
           <TextInput style={styles.input}
             value={password}
@@ -55,10 +44,18 @@ export default function IniciarSesion({ navigation }) {
             secureTextEntry={true}
           />
         </View>
+        <Text style={styles.texto}>Repita la contraseña</Text>
+        <View style={styles.container3}>
+          <TextInput style={styles.input}
+            value={password2}
+            onChangeText={setPassword2}
+            secureTextEntry={true}
+          />
+        </View>
 
         <View style={styles.container4}>
-          <TouchableOpacity onPress={irMenu} style={(styles.button)}><Text style={styles.textIniciar}>Iniciar Sesión</Text></TouchableOpacity>
-          <Text onPress={irRecup1} style={styles.textRegistrar}>Recuperar Contraseña</Text>
+          <TouchableOpacity onPress={irRecup1} style={(styles.button)}><Text style={styles.textIniciar}>Volver</Text></TouchableOpacity>
+          <TouchableOpacity onPress={irInicio} style={(styles.button)}><Text style={styles.textIniciar}>Guardar</Text></TouchableOpacity>
         </View>
       </View>
     </View >
@@ -83,18 +80,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container4: {
+    flexDirection: 'row',
+    flex: 2,
+    justifyContent: 'space-between',
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
-    borderWidth: 2,
     alignItems: 'center',
     borderColor: "#FFF",
-    width: 222,
+    width: 100,
     borderRadius: 50,
     backgroundColor: "#FFF",
     padding: 10,
-    marginVertical: 10,
+    margin: 10,
   },
   buttonText: {
     textAlign: 'center',

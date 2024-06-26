@@ -20,70 +20,83 @@ const Stack = createNativeStackNavigator();
 
 // Navegación entre pantallas.
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Index">
-        <Stack.Screen
-          name="Index"
-          component={Index}
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen
-          name="IniciarSesion"
-          component={IniciarSesion}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Registrar"
-          component={Registrar}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Inicio"
-          component={Inicio}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Carrito"
-          component={Carrito}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Ordenes"
-          component={Ordenes}
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen
-          name="Cuenta"
-          component={Cuenta}
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen
-          name="Notificaciones"
-          component={Notificaciones}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Recup1"
-          component={Recup1}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Recup2"
-          component={Recup2}
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen
-          name="DetalleProd"
-          component={DetalleProd}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="NavBottom"
-          component={NavBottom}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Index">
+                <Stack.Screen
+                    name="Index"
+                    component={Index}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="IniciarSesion"
+                    component={IniciarSesion}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Registrar"
+                    component={Registrar}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Inicio"
+                    component={Inicio}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Carrito"
+                    component={Carrito}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Ordenes"
+                    component={Ordenes}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Cuenta"
+                    component={Cuenta}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Recup1"
+                    component={Recup1}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Recup2"
+                    component={Recup2}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="NavBottom"
+                    component={NavBottom}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Notificaciones"
+                    component={Notificaciones}
+                    options={{
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#FFC0CB',
+                        },
+                        headerTintColor: '#000',
+                    }}
+                />
+                <Stack.Screen
+                    name="DetalleProd"
+                    component={DetalleProd}
+                    options={{
+                        headerShown: true,
+                        title: 'Detalle del Producto',
+                        headerStyle: {
+                            backgroundColor: '#FFC0CB',
+                        },
+                        headerTintColor: '#000',
+                    }}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }

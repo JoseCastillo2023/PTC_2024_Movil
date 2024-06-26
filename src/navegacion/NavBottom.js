@@ -8,8 +8,6 @@ import Inicio from '../screens/Inicio';
 import Carrito from '../screens/Carrito';
 import Ordenes from '../screens/Ordenes';
 import Cuenta from '../screens/Cuenta';
-import Notificaciones from '../screens/Notificaciones';
-import DetalleProd from '../screens/DetalleProd';
 import 'react-native-gesture-handler';
 
 // Constantes de Navegación del menu.
@@ -157,29 +155,6 @@ export default function AppNavigator() {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Main" component={TabNavigator} options={{ headerShown: false }} />
-            <Stack.Screen
-                name="Notificaciones"
-                component={Notificaciones}
-                options={{
-                    headerShown: true,
-                    headerStyle: {
-                        backgroundColor: '#FFC0CB',
-                    },
-                    headerTintColor: '#000',
-                }}
-            />
-            <Stack.Screen
-                name="DetalleProd"
-                component={DetalleProd}
-                options={{
-                    headerShown: true,
-                    title: 'Detalle del Producto',
-                    headerStyle: {
-                        backgroundColor: '#FFC0CB',
-                    },
-                    headerTintColor: '#000',
-                }}
-            />
         </Stack.Navigator>
     );
 }

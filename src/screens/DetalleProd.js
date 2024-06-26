@@ -2,8 +2,17 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const DetalleProd = () => {
+
+    const navigation = useNavigation();
+
+    const irCarrito = () => {
+        navigation.navigate('NavBottom', { screen: 'Carrito' });
+    };
+
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}>
             <View style={styles.container}>
@@ -25,7 +34,7 @@ const DetalleProd = () => {
                     <Text style={styles.textoProducto}>
                         Pan 100% Artesanal, 0.5 Kg por unidad.
                     </Text>
-                    <TouchableOpacity style={styles.botonCarrito}>
+                    <TouchableOpacity style={styles.botonCarrito} onPress={irCarrito}>
                         <Text style={styles.textoBoton}>
                             Agregar al carrito
                         </Text>

@@ -48,21 +48,23 @@ function TabNavigator({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.topContainer}>
-                <View style={[styles.topContent, headerContent === 'Mi Cuenta' ? styles.centeredHeader : null]}>
-                    <Text style={[styles.topText, headerContent === 'Mi Cuenta' ? styles.centeredText : null]}>
-                        {headerContent}
-                    </Text>
-                    <Text style={[styles.topText2, headerContent === 'Mi Cuenta' ? styles.centeredText : null]}>
-                        {headerContent2}
-                    </Text>
-                </View>
-                {['Panaderia Hernández'].includes(headerContent) && (
-                    <TouchableOpacity onPress={() => navigation.navigate('Notificaciones')}>
-                        <Ionicons name="notifications-outline" size={30} color="black" style={styles.notificationIcon} />
-                    </TouchableOpacity>
-                )}
+        <View style={styles.topContainer}>
+          <View style={[styles.topContent, headerContent === 'Mi Cuenta' ? styles.centeredHeader : null]}>
+            <View>
+              <Text style={[styles.topText, headerContent === 'Mi Cuenta' ? styles.centeredText : null]}>
+                {headerContent}
+              </Text>
+              <Text style={[styles.topText2, headerContent === 'Mi Cuenta' ? styles.centeredText : null]}>
+                {headerContent2}
+              </Text>
             </View>
+            {['Panaderia Hernández'].includes(headerContent) && (
+              <TouchableOpacity onPress={() => navigation.navigate('Notificaciones')}>
+                <Ionicons name="notifications-outline" size={30} color="black" style={styles.notificationIcon} />
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
 
             <View style={styles.navigatorContainer}>
                 <Tab.Navigator
@@ -163,46 +165,46 @@ export default function AppNavigator() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    topContainer: {
+      },
+      topContainer: {
         height: 80,
         backgroundColor: '#FFC0CB',
         paddingLeft: 16,
         justifyContent: 'center',
-    },
-    topContent: {
+      },
+      topContent: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
         paddingRight: 16,
-    },
-    centeredHeader: {
+      },
+      centeredHeader: {
         paddingTop: 20,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 20,
-    },
-    topText: {
+      },
+      topText: {
         paddingTop: 20,
         fontSize: 18,
         fontWeight: 600,
         justifyContent: 'flex-start',
-    },
-    centeredText: {
+      },
+      centeredText: {
         textAlign: 'center',
-    },
-    topText2: {
+      },
+      topText2: {
         fontSize: 16,
         fontWeight: 500,
         justifyContent: 'flex-start',
-    },
-    notificationIcon: {
+      },
+      notificationIcon: {
         paddingTop: 20,
         marginLeft: 'auto',
-    },
-    navigatorContainer: {
+      },
+      navigatorContainer: {
         flex: 1,
-    },
+      },
 });

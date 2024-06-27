@@ -10,7 +10,7 @@ const DetalleProd = () => {
     const navigation = useNavigation();
 
     const irCarrito = () => {
-        navigation.navigate('NavBottom', { screen: 'Carrito' });
+        navigation.navigate('Carrito');
     };
 
     return (

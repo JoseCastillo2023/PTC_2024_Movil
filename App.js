@@ -1,4 +1,4 @@
-// Importar Dependencias.
+// Importar Dependencias que se utilizara.
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';

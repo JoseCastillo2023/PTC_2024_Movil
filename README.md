@@ -6,7 +6,7 @@ Proyecto basado en una panaderia utilizando React Native para crear una app
 para los clientes de nuestra panaderia.
 
 Integrantes:
-Coordinador: Edgar Enrique Sarco García.
+* Coordinador: Edgar Enrique Sarco García.
 Sub-Coordinador: José Miguel Ángel Castillo.
 Secretario: Fernando Antonio Molina Paniagua.
 

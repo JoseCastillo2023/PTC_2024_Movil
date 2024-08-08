@@ -33,10 +33,10 @@ export default function Productos({ navigation }) {
   
 
   // Función para manejar la apertura del modal de compra
-  const handleCompra = (nombre, id) => {
+  const handleCompra = (nombre_categoria, id) => {
     setModalVisible(true);
     setIdProductoModal(id);
-    setNombreProductoModal(nombre);
+    setNombreProductoModal(nombre_categoria);
   };
 
   // Función para obtener los productos por categoría
@@ -124,7 +124,7 @@ export default function Productos({ navigation }) {
             onValueChange={(value) => getProductos(value)}
             placeholder={{ label: "Selecciona una categoría...", value: null }}
             items={dataCategorias.map((categoria) => ({
-              label: categoria.nombre,
+              label: categoria.nombre_categoria,
               value: categoria.id_categoria,
             }))}
           />

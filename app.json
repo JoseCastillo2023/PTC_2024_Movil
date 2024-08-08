@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "cliente-app-sport-development",
+    "slug": "cliente-app-sport-development",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo_azul.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#16537E",
+      "imageResizeMode": "contain"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],        
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo_azul.png",
+        "backgroundColor": "#FFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/logo_azul.png"
+    }
+  }
+}

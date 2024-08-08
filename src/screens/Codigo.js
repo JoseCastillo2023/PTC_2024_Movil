@@ -33,7 +33,7 @@ export default function Recuperacion({ navigation }) {
         });
     
         try {
-            const response = await fetch(`${ip}/PTC_2024/api/helpers/recuperacion_contrasena.php`, {
+            const response = await fetch(`${ip}/PTC_2024/api/helpers/recup_contra.php`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

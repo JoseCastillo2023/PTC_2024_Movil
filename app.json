@@ -4,11 +4,11 @@
     "slug": "cliente-app-sport-development",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo_azul.png",
+    "icon": "./assets/splash_wallpaper.png",
     "userInterfaceStyle": "light",
     "splash": {
       "resizeMode": "contain",
-      "backgroundColor": "#16537E",
+      "backgroundColor": "#FFFFF",
       "imageResizeMode": "contain"
     },
     "assetBundlePatterns": [
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo_azul.png",
+        "foregroundImage": "./assets/splash_wallpaper.png",
         "backgroundColor": "#FFF"
       }
     },

@@ -6,7 +6,7 @@ export default function Index({ navigation }) {
 
     // Navegación entre pantallas.
     const irRegistrar = async () => {
-        navigation.navigate('Registrar');
+        navigation.navigate('SignUp');
     };
 
     const irInicio = async () => {

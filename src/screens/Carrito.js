@@ -33,7 +33,7 @@ const Carrito = ({ navigation }) => {
   // Función para obtener los detalles del carrito desde el servidor
   const getDetalleCarrito = async () => {
     try {
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/pedido.php?action=readDetail`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/pedido.php?action=readDetail`, {
         method: 'GET',
       });
       const data = await response.json();
@@ -53,7 +53,7 @@ const Carrito = ({ navigation }) => {
   // Función para finalizar el pedido
   const finalizarPedido = async () => {
     try {
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/pedido.php?action=finishOrder`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/pedido.php?action=finishOrder`, {
         method: 'GET',
       });
       const data = await response.json();

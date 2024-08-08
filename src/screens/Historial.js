@@ -45,7 +45,7 @@ const Carrito = ({ navigation }) => {
   // Función para obtener los detalles del carrito desde el servidor
   const getDetalleCarrito = async () => {
     try {
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/order.php?action=readDetail`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/order.php?action=readDetail`, {
         method: 'GET',
       });
       const data = await response.json();

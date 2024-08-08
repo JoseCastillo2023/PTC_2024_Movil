@@ -32,7 +32,7 @@ export default function IniciarSesion({ navigation }) {
   // Función para validar la sesión del usuario
   const validarSesion = async () => {
     try {
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=getUser`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=getUser`, {
         method: 'GET'
       });
 
@@ -67,7 +67,7 @@ export default function IniciarSesion({ navigation }) {
       formData.append('clave', contrasenia);
 
       // Enviar la solicitud de inicio de sesión al servidor
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=logIn`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=logIn`, {
         method: 'POST',
         body: formData
       });

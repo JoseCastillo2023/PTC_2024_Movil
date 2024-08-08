@@ -37,7 +37,7 @@ export default function Detalle({ route, navigation }) {
         formData.append("idProducto", idProducto);
         
         const response = await fetch(
-          `${ip}/Sport_Development_3/api/services/public/producto.php?action=readOne`,
+          `${ip}/PTC_2024/api/services/public/producto.php?action=readOne`,
           {
             method: "POST",
             body: formData,
@@ -94,7 +94,7 @@ export default function Detalle({ route, navigation }) {
         <View style={styles.card}>
           {/* Imagen del producto */}
           <Image
-            source={{ uri: `${ip}/Sport_Development_3/api/images/productos/${producto.imagen_producto}` }}
+            source={{ uri: `${ip}/PTC_2024/api/images/productos/${producto.imagen_producto}` }}
             style={styles.image}
             resizeMode="contain"
           />

@@ -23,7 +23,7 @@ export default function Recuperacion({ navigation }) {
             const formData = new FormData();
             formData.append('clienteEmail', clienteEmail.trim());
 
-            const response = await fetch(`${ip}/Sport_Development_3/api/helpers/recuperacion_email.php`, {
+            const response = await fetch(`${ip}/PTC_2024/api/helpers/recuperacion_email.php`, {
                 method: 'POST',
                 body: formData,
             });

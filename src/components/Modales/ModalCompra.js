@@ -41,7 +41,7 @@ const ModalCompra = ({
       formData.append('cantidadProducto', cantidadProducto);
 
       const response = await fetch(
-        `${ip}/Sport_Development_3/api/services/public/pedido.php?action=createDetail`,
+        `${ip}/PTC_2024/api/services/public/pedido.php?action=createDetail`,
         {
           method: 'POST',
           body: formData

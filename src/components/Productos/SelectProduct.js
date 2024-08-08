@@ -11,7 +11,7 @@ export default function SelectProduct({ ip, imagenProducto, idProducto, nombrePr
     <View style={styles.card}>
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: `${ip}/Sport_Development_3/api/images/productos/${imagenProducto}` }}
+          source={{ uri: `${ip}/PTC_2024/api/images/productos/${imagenProducto}` }}
           style={styles.image}
           resizeMode="contain"
         />

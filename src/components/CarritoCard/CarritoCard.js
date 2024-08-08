@@ -38,7 +38,7 @@ const CarritoCard = ({
             onPress: async () => {
               const formData = new FormData();
               formData.append('idDetalle', idDetalle);
-              const response = await fetch(`${ip}/Sport_Development_3/api/services/public/pedido.php?action=deleteDetail`, {
+              const response = await fetch(`${ip}/PTC_2024/api/services/public/pedido.php?action=deleteDetail`, {
                 method: 'POST',
                 body: formData
               });
@@ -63,7 +63,7 @@ const CarritoCard = ({
     <View style={styles.itemContainer}>
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: `${ip}/Sport_Development_3/api/images/productos/${item.imagen_producto}` }}
+          source={{ uri: `${ip}/PTC_2024/api/images/productos/${item.imagen_producto}` }}
           style={styles.image}
           resizeMode="contain" // Ajustar la imagen al contenedor
         />

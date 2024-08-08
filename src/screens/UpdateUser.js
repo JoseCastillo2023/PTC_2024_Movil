@@ -69,7 +69,7 @@ export default function UserProfile({ navigation }) {
 
   const getUser = async () => {
     try {
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=getUser`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=getUser`, {
         method: 'GET'
       });
       console.log('Fetch response:', response);  // Verifica la respuesta
@@ -117,7 +117,7 @@ export default function UserProfile({ navigation }) {
       formData.append('direccionCliente', direccion);
       formData.append('nacimientoCliente', fechaNacimiento);
 
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=editProfile`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=editProfile`, {
         method: 'POST',
         body: formData
       });
@@ -145,7 +145,7 @@ export default function UserProfile({ navigation }) {
       formData.append('claveActual', claveActual);
       formData.append('claveNueva', claveNueva);
   
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=changePassword`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=changePassword`, {
         method: 'POST',
         body: formData,
       });

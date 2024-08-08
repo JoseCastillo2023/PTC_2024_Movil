@@ -11,7 +11,7 @@ export default function Home({ navigation }) {
   const handleLogout = async () => {
     try {
       // Enviar una solicitud HTTP al servidor para cerrar la sesión
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=logOut`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=logOut`, {
         method: 'GET'
       });
       const data = await response.json();
@@ -45,7 +45,7 @@ export default function Home({ navigation }) {
   const getUser = async () => {
     try {
       // Enviar una solicitud HTTP al servidor para obtener los datos del usuario
-      const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=getUser`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=getUser`, {
         method: 'GET'
       });
       const data = await response.json();

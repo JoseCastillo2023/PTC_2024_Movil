@@ -87,7 +87,7 @@ export default function SignUp({ navigation }) {
             formData.append('claveCliente', clave);
             formData.append('confirmarClave', confirmarClave);
 
-            const response = await fetch(`${ip}/Sport_Development_3/api/services/public/cliente.php?action=signUpMovil`, {
+            const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=signUpMovil`, {
                 method: 'POST',
                 body: formData
             });

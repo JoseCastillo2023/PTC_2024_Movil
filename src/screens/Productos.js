@@ -50,7 +50,7 @@ export default function Productos({ navigation }) {
       formData.append("idCategoria", idCategoriaSelect);
       //utilizar la direccion IP del servidor y no localhost
       const response = await fetch(
-        `${ip}/Sport_Development_3/api/services/public/producto.php?action=readProductosCategoria`,
+        `${ip}/PTC_2024/api/services/public/producto.php?action=readProductosCategoria`,
         {
           method: "POST",
           body: formData,
@@ -78,7 +78,7 @@ export default function Productos({ navigation }) {
     try {
 
       const response = await fetch(
-        `${ip}/Sport_Development_3/api/services/public/categoria.php?action=readAll`,
+        `${ip}/PTC_2024/api/services/public/categoria.php?action=readAll`,
         {
           method: "GET",
         }

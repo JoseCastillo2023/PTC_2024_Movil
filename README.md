@@ -1,4 +1,4 @@
-# PTC_2024_Movil
+## PTC_2024_Movil
 Nombre del proyecto: PanÉmporium.
 
 Descripción:
@@ -11,24 +11,27 @@ Sub-Coordinador: José Miguel Ángel Castillo.
 Secretario: Fernando Antonio Molina Paniagua.
 
 
-Dependencias del proyecto:
-1. npm install -g expo-cli
-2. npm i @react-navigation/native
-3. npm i @react-navigation/native-stack
-4. npm install @react-native-community/datetimepicker --save
-5. npm install react-native-picker-select
-6. npm install react-native-vector-icons
-7. npm install @expo/vector-icons
-8. npm install react-native-masked-text
-9. npm install @react-navigation/bottom-tabs
-10. npm install react-native-screens react-native-safe-area-context
-11. npm i @react-navigation/stack
-12. npm install expo@~50.0.19
-13. npm install react-native-safe-area-context@4.8.2
-14. npm install react-native-screens@~3.29.0
-15. npm install react-native-toast-message
-16. npm install @react-native-community/masked-view
-17. npm install react-native-gesture-handler@~2.14.0
-18. npm install
-19. npx expo start --clear
-20. npx expo start
+# Dependencias del proyecto
+
+-npm install
+-npm install @react-navigation/stack
+-npm i @react-navigation/native
+-npm i @react-navigation/native-stack
+-npm install @react-native-community/datetimepicker --save
+-npm install react-native-picker-select
+-npm install react-native-vector-icons
+-npm install @expo/vector-icons
+-npm install react-native-masked-text
+-npm install @react-navigation/bottom-tabs
+-npm install @expo/vector-icons
+-npm install @react-native-community/datetimepicker@8.0.1
+-npm install expo-status-bar@~1.12.1
+-npm install expo-web-browser@~13.0.3
+-npm install react-native@0.74.3
+-npx expo start
+
+## Licencia
+
+Este proyecto está licenciado bajo [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+Puedes utilizar, modificar y compartir este trabajo de acuerdo con los términos de la licencia Creative Commons Attribution 4.0 International.

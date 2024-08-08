@@ -7,8 +7,8 @@ para los clientes de nuestra panaderia.
 
 Integrantes:
 * Coordinador: Edgar Enrique Sarco García.
-Sub-Coordinador: José Miguel Ángel Castillo.
-Secretario: Fernando Antonio Molina Paniagua.
+* Sub-Coordinador: José Miguel Ángel Castillo.
+* Secretario: Fernando Antonio Molina Paniagua.
 
 
 # Dependencias del proyecto

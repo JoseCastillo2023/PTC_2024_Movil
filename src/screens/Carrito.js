@@ -60,7 +60,7 @@ const Carrito = ({ navigation }) => {
       if (data.status) {
         Alert.alert("Éxito", "Se finalizó la compra correctamente.");
         setDataDetalleCarrito([]); // Limpia la lista de detalles del carrito
-        navigation.navigate('TabNavigator', { screen: 'Productos' });
+        navigation.navigate('TabNavigator', { screen: 'Historial' });
       } else {
         Alert.alert('Error', data.error);
       }

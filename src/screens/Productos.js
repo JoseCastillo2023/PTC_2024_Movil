@@ -116,8 +116,9 @@ export default function Productos({ navigation }) {
       />
       <View>
         <Text style={styles.subtitle}>
-          //////////////////////////////////////////////////////////////////////////////////////
+          ...............................................................
         </Text>
+        
         <View style={styles.pickerContainer}>
           <RNPickerSelect
             style={{ inputAndroid: styles.picker }}

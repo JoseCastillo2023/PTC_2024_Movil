@@ -55,7 +55,7 @@ const ModalCompra = ({
         Alert.alert('Éxito', 'Producto añadido al carrito correctamente.');
         cerrarModal(false);
         setCantidad(''); 
-        navigation.navigate('Home'); // Navegar a la pantalla de inicio
+        navigation.navigate('Carrito'); // Navegar a la pantalla de inicio
       } else {
         Alert.alert('Error', data.error);
       }

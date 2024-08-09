@@ -23,7 +23,6 @@ Integrantes:
 -npm install @expo/vector-icons
 -npm install react-native-masked-text
 -npm install @react-navigation/bottom-tabs
--npm install @expo/vector-icons
 -npm install @react-native-community/datetimepicker@8.0.1
 -npm install expo-status-bar@~1.12.1
 -npm install expo-web-browser@~13.0.3

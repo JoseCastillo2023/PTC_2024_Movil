@@ -19,7 +19,7 @@ export default function Home({ navigation }) {
       const data = await response.json();
       if (data.status) {
         // Si la solicitud es exitosa, navegar a la pantalla de Sesión
-        navigation.navigate('Sesion');
+        navigation.navigate('IniciarSesion');
       } else {
         // Si hay un error, mostrar una alerta
         Alert.alert('Error', data.error);

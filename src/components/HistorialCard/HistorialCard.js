@@ -7,20 +7,10 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 // Componente CarritoCard que recibe varias props para gestionar los elementos del carrito
-const CarritoCard = ({
-  item,
-  imagenProducto,
-  cargarCategorias,
-  modalVisible,
-  setModalVisible,
-  cantidadProductoCarrito,
-  setCantidadProductoCarrito,
-  accionBotonDetalle,
-  idDetalle,
-  setIdDetalle,
-  getDetalleCarrito,
-  updateDataDetalleCarrito
-}) => {
+const CarritoCard = ({item, imagenProducto, cargarCategorias, modalVisible, setModalVisible,
+  cantidadProductoCarrito, setCantidadProductoCarrito, accionBotonDetalle, idDetalle, setIdDetalle,
+  getDetalleCarrito, updateDataDetalleCarrito
+  }) => {
   const ip = Constantes.IP;
   
 

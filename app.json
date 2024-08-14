@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cliente-app-sport-development",
-    "slug": "cliente-app-sport-development",
+    "name": "cliente-app-panaderia",
+    "slug": "cliente-app-panaderia",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/splash_wallpaper.png",
@@ -24,7 +24,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/logo_azul.png"
+      "favicon": "./assets/adaptiveIcon.png"
     }
   }
 }

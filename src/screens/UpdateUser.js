@@ -69,7 +69,7 @@ export default function UserProfile({ navigation }) {
 
   const getUser = async () => {
     try {
-      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=readProfilemovil`, {
+      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=readProfileMovil`, {
         method: 'GET'
       });
       console.log('Fetch response:', response);  

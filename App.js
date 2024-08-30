@@ -12,7 +12,7 @@ import TabNavigator from './src/tabNavigator/TabNavigator';
 import Recuperacion from './src/screens/Recuperacion';
 import Historial from './src/screens/Historial';
 import Detalle from './src/screens/Detalle';
-import Home from './src/screens/Home';
+import Inicio from './src/screens/Inicio';
 import Codigo from './src/screens/Codigo';
 
 
@@ -68,8 +68,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='Home'
-          component={Home}
+          name='Inicio'
+          component={Inicio}
           options={{ headerShown: false }}
         />
          <Stack.Screen

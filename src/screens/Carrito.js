@@ -20,7 +20,7 @@ const Carrito = ({ navigation }) => {
 
   // Función para navegar hacia atrás a la pantalla de productos
   const backProducts = () => {
-    navigation.navigate('Home');
+    navigation.navigate('Inicio');
   };
 
   // Efecto para cargar los detalles del carrito al cargar la pantalla o al enfocarse en ella

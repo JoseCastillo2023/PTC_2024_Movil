@@ -23,7 +23,7 @@ export default function Productos({ navigation }) {
 
   // Función para navegar a la pantalla de inicio
   const volverInicio = async () => {
-    navigation.navigate("Home");
+    navigation.navigate("Inicio");
   };
 
    // Función para navegar a la pantalla de inicio

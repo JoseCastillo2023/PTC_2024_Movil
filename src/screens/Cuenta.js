@@ -32,7 +32,7 @@ export default function Home({ navigation }) {
 
   // Función para navegar a la pantalla de Productos
   const irActualizar = () => {
-    navigation.navigate('Home');
+    navigation.navigate('Inicio');
   };
 
   // Función para navegar a la pantalla de Editar Usuario

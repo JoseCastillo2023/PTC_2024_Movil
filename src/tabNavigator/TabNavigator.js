@@ -4,7 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Platform } from 'react-native';
 
 // Importa tus componentes de pantalla aquí
-import Home from '../screens/Home';
+import Inicio from '../screens/Inicio';
 import Cuenta from '../screens/Cuenta';
 import Carrito from '../screens/Carrito';
 import Historial from '../screens/Historial';
@@ -26,7 +26,7 @@ const TabNavigator = () => {
         }, // Estilo de la barra de pestañas
         tabBarIcon: ({ focused, color, size }) => { // Función que define el ícono de la pestaña
           let iconName;
-          if (route.name === 'Home') {
+          if (route.name === 'Inicio') {
             iconName = focused ? 'person-sharp' : 'person-outline';
           } else if (route.name === 'Cuenta') {
             iconName = focused ? 'home' : 'home-outline';
@@ -41,8 +41,8 @@ const TabNavigator = () => {
     >
 
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Inicio"
+        component={Inicio}
         options={{ title: 'Inicio' }}
       />
       <Tab.Screen

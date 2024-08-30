@@ -127,7 +127,6 @@ export default function UserProfile({ navigation }) {
       const data = await response.json();
       if (data.status) {
         Alert.alert('Perfil actualizado correctamente');
-        navigation.navigate('Home');
       } else {
         Alert.alert('Error', data.error);
       }

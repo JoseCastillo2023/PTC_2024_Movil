@@ -343,18 +343,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 350,
     height: 45,
-    borderRadius: 5,
+    borderRadius: 15,
     padding: 10,
     marginVertical: 10
   },
   fechaSeleccionar: {
     fontSize: 14,
-    color: '#16537E',
+    color: '#623431',
     fontWeight: '500'
   },
   fecha: {
     fontSize: 14,
-    color: '#16537E',
+    color: '#623431',
     fontWeight: '500'
   },
   image: {

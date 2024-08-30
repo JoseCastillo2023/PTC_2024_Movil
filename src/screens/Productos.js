@@ -116,20 +116,20 @@ export default function Productos({ navigation }) {
       />
       <View>
         <Text style={styles.subtitle}>
-          ...............................................................
+          ..................................................
         </Text>
         
-        <View style={styles.pickerContainer}>
-          <RNPickerSelect
-            style={{ inputAndroid: styles.picker }}
-            onValueChange={(value) => getProductos(value)}
-            placeholder={{ label: "Selecciona una categoría...", value: null }}
-            items={dataCategorias.map((categoria) => ({
-              label: categoria.nombre_categoria,
-              value: categoria.id_categoria,
-            }))}
-          />
-        </View>
+        <View style={styles.pickerWrapper}>
+            <RNPickerSelect
+              style={pickerSelectStyles}
+              onValueChange={(value) => getProductos(value)}
+              placeholder={{ label: "Selecciona una categoría...", value: null }}
+              items={dataCategorias.map((categoria) => ({
+                label: categoria.nombre_categoria,
+                value: categoria.id_categoria,
+              }))}
+            />
+          </View>
       </View>
       <SafeAreaView style={styles.containerFlat}>
         <FlatList
@@ -163,15 +163,11 @@ export default function Productos({ navigation }) {
 const styles = StyleSheet.create({
   containerFlat: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
-    width: 350,
+  
   },
   container: {
     flex: 1,
-    backgroundColor: "#FFF",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
+ 
   },
   card: {
     backgroundColor: "#623431",
@@ -272,11 +268,33 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     color: "#FFF", 
   },
-  pickerContainer: {
-    alignItems: "left",
-    borderColor: "#312323", 
-    borderRadius: 5,
-    backgroundColor: "#A9A9A9", 
+  pickerWrapper: {
+    width: "90%",
+    borderRadius: 20,
+    backgroundColor: "#623431",
+    marginBottom: 10,
+    marginTop: 20,
+    marginLeft: 17,
+  },
+});
+
+const pickerSelectStyles = StyleSheet.create({
+  inputAndroid: {
+    fontSize: 15,
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    backgroundColor: "#623431",
     color: "#FFF",
+  },
+  placeholder: {
+    color: '#FFF',
+    fontSize: 15,
+  },
+  viewContainer: {
+    borderRadius: 20,
+    backgroundColor: "#623431",
+    paddingHorizontal: 15,
+    paddingVertical: 1,
   },
 });

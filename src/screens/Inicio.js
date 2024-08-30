@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   },
   pickerWrapper: {
     width: "90%",
-    borderRadius: 20,
+    borderRadius: 15,
     backgroundColor: "#623431",
     marginBottom: 10,
     marginTop: 20,

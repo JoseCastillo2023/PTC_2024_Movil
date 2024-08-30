@@ -133,11 +133,11 @@ const styles = StyleSheet.create({
   },
   modifyButton: {
     borderWidth: 1,
-    borderColor: '#16537E',
+    borderColor: '#623431',
     borderRadius: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: '#16537E',
+    backgroundColor: '#623431',
     marginVertical: 4,
   },
   deleteButton: {

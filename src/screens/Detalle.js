@@ -170,7 +170,7 @@ export default function Detalle({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    marginTop: 15,
     backgroundColor: '#fff',
   },
   card: {
@@ -208,12 +208,12 @@ const styles = StyleSheet.create({
   },
   ButtonVolver: {
     flexDirection: "row",
-    marginRight: 310,
+    marginRight: 350,
     marginVertical: 15,
     marginTop: 20,
     backgroundColor: "#623431",
     borderRadius: 8,
-    paddingVertical: 12,
+    paddingVertical: 15,
     paddingHorizontal: 15,
   },
   cartButton: {

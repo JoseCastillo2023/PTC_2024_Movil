@@ -27,7 +27,7 @@ const Carrito = ({ navigation }) => {
 
   // Función para navegar hacia atrás a la pantalla de productos
   const backProducts = () => {
-    navigation.navigate('Productos');
+    navigation.navigate('Home');
   };
 
   const volverInicio = async () => {

@@ -4,8 +4,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Platform } from 'react-native';
 
 // Importa tus componentes de pantalla aquí
-import Productos from '../screens/Productos';
 import Home from '../screens/Home';
+import Cuenta from '../screens/Cuenta';
 import Carrito from '../screens/Carrito';
 import Historial from '../screens/Historial';
 
@@ -28,7 +28,7 @@ const TabNavigator = () => {
           let iconName;
           if (route.name === 'Home') {
             iconName = focused ? 'person-sharp' : 'person-outline';
-          } else if (route.name === 'Productos') {
+          } else if (route.name === 'Cuenta') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Carrito') {
             iconName = focused ? 'cart' : 'cart-outline';
@@ -41,8 +41,8 @@ const TabNavigator = () => {
     >
 
       <Tab.Screen
-        name="Productos"
-        component={Productos}
+        name="Home"
+        component={Home}
         options={{ title: 'Inicio' }}
       />
       <Tab.Screen
@@ -56,8 +56,8 @@ const TabNavigator = () => {
         options={{ title: 'Historial' }}
       />
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Cuenta"
+        component={Cuenta}
         options={{ title: 'Cuenta' }}
       />
     </Tab.Navigator>

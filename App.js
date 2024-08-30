@@ -12,7 +12,7 @@ import TabNavigator from './src/tabNavigator/TabNavigator';
 import Recuperacion from './src/screens/Recuperacion';
 import Historial from './src/screens/Historial';
 import Detalle from './src/screens/Detalle';
-import Productos from './src/screens/Productos';
+import Home from './src/screens/Home';
 import Codigo from './src/screens/Codigo';
 
 
@@ -68,8 +68,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='Productos'
-          component={Productos}
+          name='Home'
+          component={Home}
           options={{ headerShown: false }}
         />
          <Stack.Screen

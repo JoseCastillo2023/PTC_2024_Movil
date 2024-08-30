@@ -59,7 +59,7 @@ export default function UserProfile({ navigation }) {
   };
 
   const volverInicio = () => {
-    navigation.navigate("Home");
+    navigation.navigate("Cuenta");
   };
 
   const showDatepicker = () => {

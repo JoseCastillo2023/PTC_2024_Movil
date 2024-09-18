@@ -155,21 +155,21 @@ export default function SignUp({ navigation }) {
                 <Image source={require('../img/logo_panaderia.png')} style={styles.image} />
 
                 <Input
-                    placeHolder='Nombre Cliente'
+                    placeHolder='Nombre:'
                     setValor={nombre}
                     setTextChange={setNombre}
                 />
                 <Input
-                    placeHolder='Apellido Cliente'
+                    placeHolder='Apellido:'
                     setValor={apellido}
                     setTextChange={setApellido}
                 />
                 <InputEmail
-                    placeHolder='Email Cliente'
+                    placeHolder='Correo electrónico:'
                     setValor={email}
                     setTextChange={setEmail} />
                 <InputMultiline
-                    placeHolder='Dirección Cliente'
+                    placeHolder='Dirección:'
                     setValor={setDireccion}
                     valor={direccion}
                     setTextChange={setDireccion} />
@@ -178,7 +178,7 @@ export default function SignUp({ navigation }) {
                     setDui={setDui} />
                 <View style={styles.contenedorFecha}>
                     <TouchableOpacity onPress={showDatepicker}>
-                        <Text style={styles.fecha}>{fechaNacimiento || 'Seleccionar Fecha de Nacimiento'}</Text>
+                        <Text style={styles.fecha}>{fechaNacimiento || 'Fecha de nacimiento:'}</Text>
                     </TouchableOpacity>
                     {show && (
                         <DateTimePicker
@@ -197,23 +197,23 @@ export default function SignUp({ navigation }) {
                     telefono={telefono}
                     setTelefono={setTelefono} />
                 <Input
-                    placeHolder='Clave'
+                    placeHolder='Contraseña:'
                     contra={true}
                     setValor={clave}
                     setTextChange={setClave} />
                 <Input
-                    placeHolder='Confirmar Clave'
+                    placeHolder='Confirmar contraseña:'
                     contra={true}
                     setValor={confirmarClave}
                     setTextChange={setConfirmarClave} />
 
                 <Buttons
-                    textoBoton='Registrar Usuario'
+                    textoBoton='Registrar usuario'
                     accionBoton={handleCreate}
                 />
 
                 <Buttons
-                    textoBoton='Ir al Login'
+                    textoBoton='Ir a inicio de sesión'
                     accionBoton={handleLogout}
                 />
             </ScrollView>

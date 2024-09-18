@@ -27,7 +27,7 @@ Integrantes:
 - npm install expo-status-bar@~1.12.1
 - npm install expo-web-browser@~13.0.3
 - npm install react-native@0.74.3
-- npm install expo@51.0.26
+- npm install expo@51.0.31
 - npm install react-native@0.74.5
 - npx expo start
 

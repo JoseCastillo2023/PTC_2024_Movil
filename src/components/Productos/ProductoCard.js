@@ -1,80 +1,102 @@
-// Importaciones necesarias desde React y React Native
-import { StatusBar, StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, FlatList, ScrollView, SafeAreaView, Image } from 'react-native';
-import { useState, useEffect } from 'react';
-import { FontAwesome } from '@expo/vector-icons';
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 // Componente ProductoCard para mostrar la información de un producto
-export default function ProductoCard({ ip, imagenProducto, idProducto, nombreProducto, descripcionProducto
-  , precioProducto, existenciasProducto, accionBotonProducto, Detalle
+export default function ProductoCard({
+  ip,
+  imagenProducto,
+  idProducto,
+  nombreProducto,
+  descripcionProducto,
+  precioProducto,
+  existenciasProducto,
+  calificacionPromedio,
+  accionBotonProducto,
+  Detalle,
 }) {
+  // Función para renderizar las estrellas de calificación
+  const renderStars = () => {
+    const stars = [];
+    const fullStars = Math.floor(calificacionPromedio);
+    const hasHalfStar = calificacionPromedio % 1 !== 0;
 
-  // Mostrar el componente
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <FontAwesome key={`star-${i}`} name="star" size={20} color="#000" />
+      );
+    }
+
+    if (hasHalfStar) {
+      stars.push(
+        <FontAwesome
+          key="star-half"
+          name="star-half-o"
+          size={20}
+          color="#000"
+        />
+      );
+    }
+
+    return stars;
+  };
+
   return (
     <View style={styles.card}>
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: `${ip}/PTC_2024/api/images/productos/${imagenProducto}` }}
+          source={{
+            uri: `${ip}/PTC_2024/api/images/productos/${imagenProducto}`,
+          }}
           style={styles.image}
-          resizeMode="contain" // Ajustar la imagen al contenedor
+          resizeMode="contain"
         />
       </View>
       <Text style={styles.text}>{idProducto}</Text>
       <Text style={styles.textTitle}>{nombreProducto}</Text>
       <Text style={styles.text}>{descripcionProducto}</Text>
-      <Text style={styles.textTitle}>Precio: <Text style={styles.textDentro}>${precioProducto}</Text></Text>
-      <Text style={styles.textTitle}>Existencias: <Text style={styles.textDentro}>{existenciasProducto} {(existenciasProducto === 1) ? 'Unidad' : 'Unidades'}</Text></Text>
+      <Text style={styles.textTitle}>
+        Precio: <Text style={styles.textDentro}>${precioProducto}</Text>
+      </Text>
+      <Text style={styles.textTitle}>
+        Existencias:{" "}
+        <Text style={styles.textDentro}>
+          {existenciasProducto}{" "}
+          {existenciasProducto === 1 ? "Unidad" : "Unidades"}
+        </Text>
+      </Text>
 
-          
       <View style={styles.ratingContainer}>
-          <Text style={styles.textTitle}>Calificación:</Text>
-          <FontAwesome name="star" size={20} color="#FFD700" />
-          <FontAwesome name="star" size={20} color="#FFD700" />
-          <FontAwesome name="star" size={20} color="#FFD700" />
-          <FontAwesome name="star" size={20} color="#FFD700" />
-          <FontAwesome name="star-half-o" size={20} color="#FFD700" />
-        </View>
+        <Text style={styles.textTitle}>Calificación:</Text>
+        {renderStars()}
+        <Text style={styles.ratingText}>{calificacionPromedio.toFixed(1)}</Text>
+      </View>
 
-      <TouchableOpacity
-        style={styles.cartButton}
-        onPress={accionBotonProducto}>
-        <FontAwesome name="plus-circle" size={24} color="white" />
-        <Text style={styles.cartButtonText}>Agregar al Carrito</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.cartButton}
-        onPress={Detalle}>
+      <TouchableOpacity style={styles.cartButton} onPress={Detalle}>
         <FontAwesome name="address-card" size={24} color="white" />
-        <Text style={styles.cartButtonText}>Ver detalle</Text>
+        <Text style={styles.cartButtonText}>Ver mas</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-
 // Estilos para el componente ProductoCard
 const styles = StyleSheet.create({
-  containerFlat: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#16537E',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: StatusBar.currentHeight || 0,
-  },
   card: {
-    backgroundColor: '#ffffff',
-    borderRadius: 8,
-    padding: 16,
+    width: "92%",
+    backgroundColor: "#ffffff",
+    borderRadius: 20,
+    padding: 25,
     marginVertical: 12,
-    marginHorizontal: 16,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    marginHorizontal: 15,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
@@ -85,63 +107,47 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     fontSize: 16,
-    marginBottom: 8, fontWeight: '500'
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
     marginBottom: 8,
+    fontWeight: "500",
   },
-  input: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 8,
-    marginLeft: 8,
-  },
-  button: {
-    backgroundColor: '#312323',
-    borderRadius: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#312323',
-    fontSize: 16,
-    fontWeight: '500'
+  textDentro: {
+    fontWeight: "400",
   },
   image: {
-    width: '65%',
-    height: 150,
-    borderRadius: 8,
-    marginBottom: 12,
+    width: 200,
+    height: 200,
+    borderRadius: 60,
+    marginBottom: 15,
   },
   imageContainer: {
-    alignItems: 'center',
-  }, textDentro: {
-    fontWeight: '400'
+    alignItems: "center",
   },
   cartButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#312323',
-    borderRadius: 5,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#16537E",
+    borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginVertical: 10,
   },
   cartButtonText: {
-    color: '#FFF',
+    color: "#FFF",
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
     marginLeft: 10,
-    textAlign: 'center'
+    textAlign: "center",
   },
   ratingContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
+    alignItems: "center",
     marginVertical: 5,
+  },
+  ratingText: {
+    fontSize: 16,
+    marginLeft: 8,
+    fontWeight: "500",
+    color: "#000",
   },
 });

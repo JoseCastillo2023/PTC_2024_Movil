@@ -4,15 +4,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importa las pantallas necesarias
 import SplashScreen from './src/screens/SplashScreen';
-import Index from './src/screens/Index';
-import IniciarSesion from './src/screens/IniciarSesion';
+import SignIn from './src/screens/SignIn';
 import SignUp from './src/screens/SignUp';
-import UpdateUser from './src/screens/UpdateUser';
+import EditUser from './src/screens/EditUser';
 import TabNavigator from './src/tabNavigator/TabNavigator';
 import Recuperacion from './src/screens/Recuperacion';
 import Historial from './src/screens/Historial';
 import Detalle from './src/screens/Detalle';
-import Inicio from './src/screens/Inicio';
+import Productos from './src/screens/Productos';
 import Codigo from './src/screens/Codigo';
 
 
@@ -28,13 +27,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='Index'
-          component={Index}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='IniciarSesion'
-          component={IniciarSesion}
+          name='SignIn'
+          component={SignIn}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -43,8 +37,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='UpdateUser'
-          component={UpdateUser}
+          name='EditUser'
+          component={EditUser}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -68,8 +62,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name='Inicio'
-          component={Inicio}
+          name='Productos'
+          component={Productos}
           options={{ headerShown: false }}
         />
          <Stack.Screen

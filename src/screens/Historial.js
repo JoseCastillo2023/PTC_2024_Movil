@@ -1,159 +1,147 @@
 // Importaciones necesarias
-import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList, Alert, TouchableOpacity,} from 'react-native';
-import AntDesign from "@expo/vector-icons/AntDesign";
+import React, { useEffect, useState } from "react";
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  Alert,
+} from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
+import Constants from "expo-constants";
+import * as Constantes from "../utils/constantes";
+import HistorialCard from "../components/HistorialCard/HistorialCard";
 
-import { useFocusEffect } from '@react-navigation/native';
-// Importa la función useFocusEffect de @react-navigation/native, 
-// que permite ejecutar un efecto cada vez que la pantalla se enfoca.
-
-import Constants from 'expo-constants';
-import * as Constantes from '../utils/constantes';
-import Buttons from '../components/Buttons/Button';
-import HistorialCard from '../components/HistorialCard/HistorialCard';
-import ModalEditarCantidad from '../components/Modales/ModalEditarCantidad';
-
-const Carrito = ({ navigation }) => {
-  // Estado para almacenar los detalles del carrito
-  const [dataDetalleCarrito, setDataDetalleCarrito] = useState([]);
+const Historial = ({ navigation }) => {
+  // Estado para almacenar los detalles del Historial
+  const [dataDetalleHistorial, setDataDetalleHistorial] = useState([]);
   // Estado para el id del detalle seleccionado para modificar
   const [idDetalle, setIdDetalle] = useState(null);
-  // Estado para la cantidad del producto seleccionado en el carrito
-  const [cantidadProductoCarrito, setCantidadProductoCarrito] = useState(0);
+  // Estado para la cantidad del producto seleccionado en el Historial
+  const [cantidadProductoHistorial, setCantidadProductoHistorial] = useState(0);
   // Estado para controlar la visibilidad del modal de edición de cantidad
   const [modalVisible, setModalVisible] = useState(false);
   // IP del servidor
   const ip = Constantes.IP;
 
-  // Función para navegar hacia atrás a la pantalla de productos
-  const backProducts = () => {
-    navigation.navigate('Inicio');
-  };
 
-  const volverInicio = async () => {
-    navigation.navigate("Inicio");
-  };
-
-  // Efecto para cargar los detalles del carrito al cargar la pantalla o al enfocarse en ella
+  // Efecto para cargar los detalles del Historial al cargar la pantalla o al enfocarse en ella
   useFocusEffect(
     // La función useFocusEffect ejecuta un efecto cada vez que la pantalla se enfoca.
     React.useCallback(() => {
-      getDetalleCarrito(); // Llama a la función getDetalleCarrito.
+      getDetalleHistorial(); // Llama a la función getDetalleHistorial.
     }, [])
   );
 
-  // Función para obtener los detalles del carrito desde el servidor
-  const getDetalleCarrito = async () => {
+  // Función para obtener los detalles del Historial desde el servidor
+  const getDetalleHistorial = async () => {
     try {
-      const response = await fetch(`${ip}/PTC_2024/api/services/public/order.php?action=readDetail`, {
-        method: 'GET',
-      });
+      const response = await fetch(
+        `${ip}/PTC_2024/api/services/public/order.php?action=readDetail`,
+        {
+          method: "GET",
+        }
+      );
       const data = await response.json();
-      console.log(data, "Data desde getDetalleCarrito")
+      console.log(data, "Data desde getDetalleHistorial");
       if (data.status) {
-        setDataDetalleCarrito(data.dataset);
+        setDataDetalleHistorial(data.dataset);
       } else {
-        console.log("No hay detalles del carrito disponibles.")
+        console.log("No hay detalles del historial disponibles.");
         //Alert.alert('ADVERTENCIA', data.error);
       }
     } catch (error) {
       console.error(error, "Error desde Catch");
-      Alert.alert('Error', 'Ocurrió un error al listar las categorias');
+      Alert.alert("Error", "Ocurrió un error al listar las categorias");
     }
   };
 
-
-  // Función para manejar la modificación de un detalle del carrito
+  // Función para manejar la modificación de un detalle del Historial
   const handleEditarDetalle = (idDetalle, cantidadDetalle) => {
     setModalVisible(true);
     setIdDetalle(idDetalle);
-    setCantidadProductoCarrito(cantidadDetalle);
+    setCantidadProductoHistorial(cantidadDetalle);
   };
 
-  // Función para renderizar cada elemento del carrito
+  // Función para renderizar cada elemento del Historial
   const renderItem = ({ item }) => (
     <HistorialCard
       item={item}
       imagenProducto={item.imagen_producto}
-      cargarCategorias={getDetalleCarrito}
+      cargarCategorias={getDetalleHistorial}
       modalVisible={modalVisible}
       setModalVisible={setModalVisible}
-      setCantidadProductoCarrito={setCantidadProductoCarrito}
-      cantidadProductoCarrito={cantidadProductoCarrito}
+      setCantidadProductoHistorial={setCantidadProductoHistorial}
+      cantidadProductoHistorial={cantidadProductoHistorial}
       idDetalle={idDetalle}
       setIdDetalle={setIdDetalle}
       accionBotonDetalle={handleEditarDetalle}
-      getDetalleCarrito={getDetalleCarrito}
-      updateDataDetalleCarrito={setDataDetalleCarrito} // Nueva prop para actualizar la lista
+      getDetalleHistorial={getDetalleHistorial}
+      updateDataDetalleHistorial={setDataDetalleHistorial} // Nueva prop para actualizar la lista
     />
   );
 
   return (
     <View style={styles.container}>
-      {/* Componente de modal para editar cantidad */}
-      <ModalEditarCantidad
-        setModalVisible={setModalVisible}
-        modalVisible={modalVisible}
-        idDetalle={idDetalle}
-        setIdDetalle={setIdDetalle}
-        setCantidadProductoCarrito={setCantidadProductoCarrito}
-        cantidadProductoCarrito={cantidadProductoCarrito}
-        getDetalleCarrito={getDetalleCarrito}
-      />
 
       {/* Título de la pantalla */}
       <Text style={styles.title}>Historial de compras</Text>
 
-      {/* Lista de detalles del carrito */}
-      {dataDetalleCarrito.length > 0 ? (
+      {/* Lista de detalles del Historial */}
+      {dataDetalleHistorial.length > 0 ? (
         <FlatList
-          data={dataDetalleCarrito}
+          data={dataDetalleHistorial}
           renderItem={renderItem}
           keyExtractor={(item) => item.id_detalle.toString()}
         />
       ) : (
-        <Text style={styles.titleDetalle}>No hay productos en el Historial :(</Text>
+        <Text style={styles.titleDetalle}>
+          No hay productos en el Historial :(
+        </Text>
       )}
-
     </View>
   );
 };
 
-export default Carrito;
+export default Historial;
 
 // Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
-    paddingTop: 50,
-    paddingHorizontal: 16,
+    backgroundColor: "#FFF0",
+    marginTop: Constants.statusBarHeight,
+    width: "auto",
+  },
+  scrollViewStyle: {
+    flexGrow: 1,
+    width: "auto",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 16,
-    color: '#000000',
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 10,
+    color: "#000000",
   },
   titleDetalle: {
     fontSize: 20,
-    fontWeight: '600',
-    textAlign: 'center',
+    fontWeight: "600",
+    textAlign: "center",
     marginVertical: 16,
-    color: '#000000',
+    color: "#000000",
   },
   containerButtons: {
     marginVertical: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   ButtonVolver: {
     flexDirection: "row",
     marginRight: 310,
     marginTop: 10,
     backgroundColor: "#16537E",
-    borderRadius: 8,
+    borderRadius: 20,
     paddingVertical: 12,
     paddingHorizontal: 15,
   },

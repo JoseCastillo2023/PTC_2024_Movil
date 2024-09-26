@@ -1,10 +1,11 @@
-import { Text, View, StyleSheet, FlatList, Alert } from 'react-native';
-import React, { useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-import * as Constantes from '../utils/constantes';
-import Buttons from '../components/Buttons/Button';
-import CarritoCard from '../components/CarritoCard/CarritoCard';
-import ModalEditarCantidad from '../components/Modales/ModalEditarCantidad';
+import { Text, View, StyleSheet, FlatList, Alert } from "react-native";
+import React, { useState } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import * as Constantes from "../utils/constantes";
+import Buttons from "../components/Buttons/Button";
+import CarritoCard from "../components/CarritoCard/CarritoCard";
+import ModalEditarCantidad from "../components/Modales/ModalEditarCantidad";
+import Constants from "expo-constants";
 
 const Carrito = ({ navigation }) => {
   // Estado para almacenar los detalles del carrito
@@ -18,10 +19,6 @@ const Carrito = ({ navigation }) => {
   // IP del servidor
   const ip = Constantes.IP;
 
-  // Función para navegar hacia atrás a la pantalla de productos
-  const backProducts = () => {
-    navigation.navigate('Inicio');
-  };
 
   // Efecto para cargar los detalles del carrito al cargar la pantalla o al enfocarse en ella
   useFocusEffect(
@@ -33,11 +30,14 @@ const Carrito = ({ navigation }) => {
   // Función para obtener los detalles del carrito desde el servidor
   const getDetalleCarrito = async () => {
     try {
-      const response = await fetch(`${ip}/PTC_2024/api/services/public/pedido.php?action=readDetail`, {
-        method: 'GET',
-      });
+      const response = await fetch(
+        `${ip}/PTC_2024/api/services/public/pedido.php?action=readDetail`,
+        {
+          method: "GET",
+        }
+      );
       const data = await response.json();
-      console.log(data, "Data desde getDetalleCarrito")
+      console.log(data, "Data desde getDetalleCarrito");
       if (data.status) {
         setDataDetalleCarrito(data.dataset);
       } else {
@@ -46,26 +46,32 @@ const Carrito = ({ navigation }) => {
       }
     } catch (error) {
       console.error(error, "Error desde Catch");
-      Alert.alert('Error', 'Ocurrió un error al listar los detalles del carrito.');
+      Alert.alert(
+        "Error",
+        "Ocurrió un error al listar los detalles del carrito."
+      );
     }
   };
 
   // Función para finalizar el pedido
   const finalizarPedido = async () => {
     try {
-      const response = await fetch(`${ip}/PTC_2024/api/services/public/pedido.php?action=finishOrder`, {
-        method: 'GET',
-      });
+      const response = await fetch(
+        `${ip}/PTC_2024/api/services/public/pedido.php?action=finishOrder`,
+        {
+          method: "GET",
+        }
+      );
       const data = await response.json();
       if (data.status) {
         Alert.alert("Éxito", "Se finalizó la compra correctamente.");
         setDataDetalleCarrito([]); // Limpia la lista de detalles del carrito
-        navigation.navigate('TabNavigator', { screen: 'Historial' });
+        navigation.navigate("TabNavigator", { screen: "Productos" });
       } else {
-        Alert.alert('Error', data.error);
+        Alert.alert("Error", data.error);
       }
     } catch (error) {
-      Alert.alert('Error', 'Ocurrió un error al finalizar el pedido.');
+      Alert.alert("Error", "Ocurrió un error al finalizar el pedido.");
     }
   };
 
@@ -118,14 +124,16 @@ const Carrito = ({ navigation }) => {
           keyExtractor={(item) => item.id_detalle.toString()}
         />
       ) : (
-        <Text style={styles.titleDetalle}>No hay productos en el carrito :(</Text>
+        <Text style={styles.titleDetalle}>
+          No hay productos en el carrito :(
+        </Text>
       )}
 
       {/* Botones de finalizar pedido y regresar a productos */}
       <View style={styles.containerButtons}>
         {dataDetalleCarrito.length > 0 && (
           <Buttons
-            textoBoton='Finalizar Pedido'
+            textoBoton="Finalizar Pedido"
             accionBoton={finalizarPedido}
           />
         )}
@@ -134,34 +142,40 @@ const Carrito = ({ navigation }) => {
   );
 };
 
-
 export default Carrito;
 
 // Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
-    paddingTop: 50,
-    paddingHorizontal: 16,
+    backgroundColor: "#FFF0",
+    marginTop: Constants.statusBarHeight,
+  },
+  scrollViewStyle: {
+    flexGrow: 1,
+    width: "auto",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 16,
-    color: '#000000',
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 10,
+    color: "#000000",
   },
   titleDetalle: {
     fontSize: 20,
-    fontWeight: '600',
-    textAlign: 'center',
+    fontWeight: "600",
+    textAlign: "center",
     marginVertical: 16,
-    color: '#000000',
+    color: "#000000",
   },
   containerButtons: {
-    marginVertical: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+    backgroundColor: "#1245",
+    marginVertical: 15,
+    marginHorizontal: "21%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 15,
+  },
+
 });

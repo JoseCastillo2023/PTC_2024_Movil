@@ -1,30 +1,37 @@
 {
   "expo": {
-    "name": "cliente-app-panaderia",
-    "slug": "cliente-app-panaderia",
+    "name": "cliente-app-sport-development",
+    "slug": "cliente-app-sport-development",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash_wallpaper.png",
+    "icon": "./assets/logo_azul.png",
     "userInterfaceStyle": "light",
     "splash": {
       "resizeMode": "contain",
-      "backgroundColor": "#FFFFF",
+      "backgroundColor": "#16537E",
       "imageResizeMode": "contain"
     },
     "assetBundlePatterns": [
       "**/*"
-    ],        
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.alegonzalez002.clienteappsportdevelopment"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash_wallpaper.png",
+        "foregroundImage": "./assets/logo_azul.png",
         "backgroundColor": "#FFF"
-      }
+      },
+      "package": "com.alegonzalez002.clienteappsportdevelopment"
     },
     "web": {
-      "favicon": "./assets/adaptiveIcon.png"
+      "favicon": "./assets/logo_azul.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "962cb177-881e-4918-bd5d-092dfa058043"
+      }
     }
   }
 }

@@ -34,7 +34,7 @@ const SplashScreen = ({ navigation }) => {
       navigation.navigate("TabNavigator");
       console.log("Se ingresa con la sesión activa");
     } else {
-      navigation.navigate("SignIn");
+      navigation.navigate("Index");
       console.log("No hay sesión activa");
       return;
     }

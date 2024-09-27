@@ -19,7 +19,7 @@ const TabNavigator = () => {
         tabBarActiveTintColor: "#FFF", // Color de los íconos activos
         tabBarInactiveTintColor: "#FFF", // Color de los íconos inactivos
         tabBarStyle: {
-          backgroundColor: "#312323",
+          backgroundColor: "#16537E",
           height: Platform.OS === "ios" ? 70 : 70, // Estilo de la barra de pestañas, altura diferente para iOS y Android
           borderTopWidth: 0,
         },
@@ -32,21 +32,21 @@ const TabNavigator = () => {
           // Función que define el ícono de la pestaña
           let iconName;
           if (route.name === "Home") {
-            iconName = focused ? 'person-sharp' : 'person-outline';
+            iconName = focused ? "home" : "home-outline";
           } else if (route.name === "Productos") {
-            iconName = focused ? 'home' : 'home-outline';
+            iconName = focused ? "football" : "football-outline";
           } else if (route.name === "Carrito") {
             iconName = focused ? "cart" : "cart-outline";
           } else if (route.name === "Historial") {
-            iconName = focused ? 'time' : 'time-outline';
+            iconName = focused ? "time" : "time-outline";
           }
           return (
             <View
               style={{
                 width: 50, 
                 height: 40, 
-                borderRadius: 10, 
-                backgroundColor: focused ? "#9f6f53" : "#312323", 
+                borderRadius: 15, 
+                backgroundColor: focused ? "#22699e" : "#16537E", 
                 justifyContent: "center",
                 alignItems: "center",
               }}
@@ -57,10 +57,11 @@ const TabNavigator = () => {
         },
       })}
     >
+      <Tab.Screen name="Home" component={Home} options={{ title: "Inicio" }} />
       <Tab.Screen
         name="Productos"
         component={Productos}
-        options={{ title: "Inicio" }}
+        options={{ title: "Productos" }}
       />
       <Tab.Screen
         name="Carrito"
@@ -72,10 +73,6 @@ const TabNavigator = () => {
         component={Historial}
         options={{ title: "Historial" }}
       />
-      <Tab.Screen 
-        name="Home" 
-        component={Home} 
-        options={{ title: "Cuenta" }} />
     </Tab.Navigator>
   );
 };

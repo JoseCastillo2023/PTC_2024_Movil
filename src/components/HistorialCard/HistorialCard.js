@@ -114,11 +114,11 @@ const styles = StyleSheet.create({
   },
   modifyButton: {
     borderWidth: 1,
-    borderColor: '#16537E',
+    borderColor: '#bc7a62',
     borderRadius: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: '#16537E',
+    backgroundColor: '#bc7a62',
     marginVertical: 4,
   },
   deleteButton: {
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   finalButton: {
-    backgroundColor: '#16537E',
+    backgroundColor: '#bc7a62',
     padding: 16,
     borderRadius: 8,
     marginVertical: 8,

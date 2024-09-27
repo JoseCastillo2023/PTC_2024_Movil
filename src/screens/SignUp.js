@@ -97,7 +97,7 @@ export default function SignUp({ navigation }) {
   };
 
     const handleLogout = async () => {
-        navigation.navigate('IniciarSesion');
+        navigation.navigate('SignIn');
     };
 
     const handleCreate = async () => {
@@ -138,7 +138,7 @@ export default function SignUp({ navigation }) {
             const data = await response.json();
             if (data.status) {
                 Alert.alert('Datos Guardados correctamente');
-                navigation.navigate('IniciarSesion');
+                navigation.navigate('SignIn');
             } else {
                 Alert.alert('Error', data.error);
             }

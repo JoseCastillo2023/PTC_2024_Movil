@@ -53,7 +53,7 @@ export default function Recuperacion({ navigation }) {
                 const result = JSON.parse(text);
                 if (result.status) {
                     Alert.alert('Éxito', 'Tu contraseña ha sido cambiada.');
-                    navigation.navigate('IniciarSesion');
+                    navigation.navigate('SignIn');
                 } else {
                     Alert.alert('Error', result.message || 'No se pudo cambiar la contraseña.');
                 }

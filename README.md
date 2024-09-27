@@ -35,7 +35,6 @@ Integrantes:
 
 npm i
 npm i -g expo-cli
-npm i -g eas-cli
 npm i react-native@0.74.3
 npm i @expo/vector-icons
 npm i expo-linear-gradient

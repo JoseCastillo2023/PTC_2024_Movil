@@ -3,4 +3,4 @@
 //utilizar la direccion IP del servidor y no localhost
 
 
-export const IP = "http://10.10.1.36";
+export const IP = "http://10.10.1.16";

@@ -134,7 +134,7 @@ export default function Productos({ navigation }) {
               onValueChange={(value) => getProductos(value)}
               placeholder={{ label: "Selecciona una categoría...", value: null }}
               items={dataCategorias.map((categoria) => ({
-                label: categoria.nombre,
+                label: categoria.nombre_categoria,
                 value: categoria.id_categoria,
               }))}
             />

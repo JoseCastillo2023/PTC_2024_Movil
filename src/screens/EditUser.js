@@ -222,13 +222,13 @@ export default function UserProfile({ navigation }) {
         <Image source={require("../img/user.png")} style={styles.image} />
         <Text style={styles.label}>Nombre:</Text>
         <Input
-          placeHolder="Nombre Cliente"
+          placeHolder="Nombre:"
           valor={nombre}
           setTextChange={setNombre}
         />
         <Text style={styles.label}>Apellido:</Text>
         <Input
-          placeHolder="Apellido Cliente"
+          placeHolder="Apellido:"
           valor={apellido}
           setTextChange={setApellido}
         />

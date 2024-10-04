@@ -8,7 +8,7 @@ export default function MaskedInputTelefono({ telefono, setTelefono }) {
     return (
         <TextInputMask
             style={styles.Input}
-            placeholder="Ingrese un nuevo teléfono..."
+            placeholder="Teléfono:"
             placeholderTextColor="#623431"
             type={'custom'}
             options={{

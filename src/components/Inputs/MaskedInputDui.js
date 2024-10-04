@@ -8,7 +8,7 @@ export default function MaskedInputDui({ dui, setDui }) {
     return (
         <TextInputMask
             style={styles.Input}
-            placeholder="Ingrese un nuevo dui..."
+            placeholder="DUI:"
             placeholderTextColor="#623431"
             type={'custom'}
             options={{

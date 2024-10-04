@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         borderRadius: 15,
         marginVertical: 10,
-        height: 50, 
+        height: 50,
+        width: 350, 
     },
     icon: {
         marginRight: 8, // Ajustar el margen izquierdo

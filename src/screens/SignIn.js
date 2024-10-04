@@ -6,9 +6,13 @@ import InputEmail from '../components/Inputs/InputEmail';
 import Buttons from '../components/Buttons/Button';
 import * as Constantes from '../utils/constantes';
 import { useFocusEffect } from '@react-navigation/native';
+import InputPassword from '../components/Inputs/InputPassword';
 
 export default function SignIn({ navigation }) {
   const ip = Constantes.IP;
+
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
   // Estado para controlar la visibilidad de la contraseña
   const [isContra, setIsContra] = useState(true);
@@ -23,6 +27,7 @@ export default function SignIn({ navigation }) {
 
       // Limpia los campos cuando se desenfoca la pantalla
       return () => {
+        setIsPasswordVisible(false);
         setUsuario('');
         setContrasenia('');
       };
@@ -109,11 +114,12 @@ export default function SignIn({ navigation }) {
           valor={usuario}
           setTextChange={setUsuario}
         />
-        <Input
+        <InputPassword
           placeHolder='Contraseña:'
+          contra={!isPasswordVisible}  // Pasa el estado isContra para ocultar la contraseña
           valor={contrasenia}
           setTextChange={setContrasenia}
-          contra={isContra} // Pasa el estado isContra para ocultar la contraseña
+          onToggleVisibility={() => setIsPasswordVisible(!isPasswordVisible)} // Alternar visibilidad
         />
       </View>
       <Buttons

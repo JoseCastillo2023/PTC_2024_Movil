@@ -11,10 +11,14 @@ import Buttons from '../components/Buttons/Button';
 import MaskedInputTelefono from '../components/Inputs/MaskedInputTelefono';
 import MaskedInputDui from '../components/Inputs/MaskedInputDui';
 import InputEmail from '../components/Inputs/InputEmail';
+import InputPassword from '../components/Inputs/InputPassword';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function SignUp({ navigation }) {
     const ip = Constantes.IP;
+
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
@@ -28,11 +32,11 @@ export default function SignUp({ navigation }) {
     const [fechaNacimiento, setFechaNacimiento] = useState('');
     const [clave, setClave] = useState('');
     const [confirmarClave, setConfirmarClave] = useState('');
-     // Estado para controlar la visibilidad de la contraseña
-  const [isContra, setIsContra] = useState(true);
-  // Estados para almacenar el usuario y la contraseña
-  const [usuario, setUsuario] = useState('');
-  const [contrasenia, setContrasenia] = useState('');
+    // Estado para controlar la visibilidad de la contraseña
+    const [isContra, setIsContra] = useState(true);
+    // Estados para almacenar el usuario y la contraseña
+    const [usuario, setUsuario] = useState('');
+    const [contrasenia, setContrasenia] = useState('');
 
     // Expresiones regulares para validar DUI y teléfono
     const duiRegex = /^\d{8}-\d$/;
@@ -61,40 +65,40 @@ export default function SignUp({ navigation }) {
         showMode('date');
     };
 
-      // Efecto para validar la sesión al cargar la pantalla o al enfocarse en ella
-  useFocusEffect(
-    React.useCallback(() => {
-      validarSesion(); // Llama a la función validarSesion
+    // Efecto para validar la sesión al cargar la pantalla o al enfocarse en ella
+    useFocusEffect(
+        React.useCallback(() => {
+            validarSesion(); // Llama a la función validarSesion
 
-      // Limpia los campos cuando se desenfoca la pantalla
-      return () => {
-        setUsuario('');
-        setContrasenia('');
-      };
-    }, [])
-  );
+            // Limpia los campos cuando se desenfoca la pantalla
+            return () => {
+                setUsuario('');
+                setContrasenia('');
+            };
+        }, [])
+    );
     // Función para validar la sesión del usuario
-  const validarSesion = async () => {
-    try {
-      const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=getUser`, {
-        method: 'GET'
-      });
+    const validarSesion = async () => {
+        try {
+            const response = await fetch(`${ip}/PTC_2024/api/services/public/cliente.php?action=getUser`, {
+                method: 'GET'
+            });
 
-      const data = await response.json();
+            const data = await response.json();
 
-      if (data.status === 1) {
-        // Si hay una sesión activa, navegar a la pantalla TabNavigator
-        navigation.navigate('TabNavigator');
-        console.log("Se ingresa con la sesión activa");
-      } else {
-        console.log("No hay sesión activa");
-        return;
-      }
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Error', 'Ocurrió un error al validar la sesión');
-    }
-  };
+            if (data.status === 1) {
+                // Si hay una sesión activa, navegar a la pantalla TabNavigator
+                navigation.navigate('TabNavigator');
+                console.log("Se ingresa con la sesión activa");
+            } else {
+                console.log("No hay sesión activa");
+                return;
+            }
+        } catch (error) {
+            console.error(error);
+            Alert.alert('Error', 'Ocurrió un error al validar la sesión');
+        }
+    };
 
     const handleLogout = async () => {
         navigation.navigate('SignIn');
@@ -196,17 +200,21 @@ export default function SignUp({ navigation }) {
                 <MaskedInputTelefono
                     telefono={telefono}
                     setTelefono={setTelefono} />
-                <Input
+                <InputPassword
                     placeHolder='Contraseña:'
-                    contra={true}
-                    setValor={clave}
-                    setTextChange={setClave} />
-                <Input
-                    placeHolder='Confirmar contraseña:'
-                    contra={true}
-                    setValor={confirmarClave}
-                    setTextChange={setConfirmarClave} />
+                    contra={!isPasswordVisible} // Si es verdadero, se oculta la contraseña
+                    valor={clave}
+                    setTextChange={setClave}
+                    onToggleVisibility={() => setIsPasswordVisible(!isPasswordVisible)} // Alternar visibilidad
+                />
 
+                <InputPassword
+                    placeHolder='Confirmar contraseña:'
+                    contra={!isConfirmPasswordVisible} // Si es verdadero, se oculta la contraseña
+                    valor={confirmarClave}
+                    setTextChange={setConfirmarClave}
+                    onToggleVisibility={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} // Alternar visibilidad
+                />
                 <Buttons
                     textoBoton='Registrar usuario'
                     accionBoton={handleCreate}
@@ -251,9 +259,9 @@ const styles = StyleSheet.create({
     },
     contenedorFecha: {
         backgroundColor: '#FFF',
-        color: "#623431", fontWeight: '500',   
+        color: "#623431", fontWeight: '500',
         borderWidth: 1,
-        borderColor: '#623431', 
+        borderColor: '#623431',
         width: 350,
         height: 50,
         borderRadius: 15,
